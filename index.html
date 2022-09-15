@@ -4,10 +4,10 @@
   <title>Cookie Store API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <link href="https://www.w3.org/StyleSheets/TR/2021/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
+  <meta content="Bikeshed version 44af0bf3e, updated Fri Jul 29 17:05:16 2022 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="b7ab86341181aed6868c1491c2f1df813a7c3a5d" name="document-revision">
+  <meta content="3a947090b283ccd4f6a140660708b849274a58fb" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -25,6 +25,11 @@
 .domintro dt code {
     font-size: inherit;
 }
+</style>
+<style>
+#speclogo { height: 100px; width: 100px; background-color: transparent; }
+main #speclogo { position: absolute; right: 20px; top: 30px; }
+.logo #speclogo { margin-top: 20px; }
 </style>
 <style>/* style-autolinks */
 
@@ -663,7 +668,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2022-07-06">6 July 2022</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2022-09-15">15 September 2022</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -797,7 +802,13 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
    </ol>
   </nav>
   <main>
-   <p><img alt="logo" height="100" src="logo-cookies.svg" style="height: 100px; width: 100px; position: absolute; right: 20px; top: 30px;" width="100"></p>
+   <p><img alt="logo" height="100" id="speclogo" src="logo-cookies.svg" width="100"></p>
+<script>
+(function() {
+  const logo = document.querySelector('.logo');
+  if (logo) logo.appendChild(document.querySelector('#speclogo'));
+})();
+</script>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p><em>This section is non-normative.</em></p>
    <p>This is a proposal to bring an asynchronous cookie API to scripts running in HTML documents and <a data-link-type="biblio" href="#biblio-service-workers">service workers</a>.</p>
@@ -3157,7 +3168,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="term-for-concept-request-window">window</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[hr-time-3]</a> defines the following terms:
+    <a data-link-type="biblio">[HR-TIME-3]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-dom-epochtimestamp">EpochTimeStamp</span>
     </ul>
@@ -3255,7 +3266,7 @@ authoring advice.</p>
    <dt id="biblio-fetch">[FETCH]
    <dd>Anne van Kesteren. <a href="https://fetch.spec.whatwg.org/"><cite>Fetch Standard</cite></a>. Living Standard. URL: <a href="https://fetch.spec.whatwg.org/">https://fetch.spec.whatwg.org/</a>
    <dt id="biblio-hr-time-3">[HR-TIME-3]
-   <dd>Yoav Weiss. <a href="https://www.w3.org/TR/hr-time-3/"><cite>High Resolution Time</cite></a>. 28 January 2022. WD. URL: <a href="https://www.w3.org/TR/hr-time-3/">https://www.w3.org/TR/hr-time-3/</a>
+   <dd>Yoav Weiss. <a href="https://w3c.github.io/hr-time/"><cite>High Resolution Time</cite></a>. URL: <a href="https://w3c.github.io/hr-time/">https://w3c.github.io/hr-time/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-infra">[INFRA]
@@ -3265,7 +3276,7 @@ authoring advice.</p>
    <dt id="biblio-rfc6265bis">[RFC6265bis]
    <dd>L. Chen; et al. <a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis"><cite>Cookies: HTTP State Management Mechanism</cite></a>. Internet-Draft. URL: <a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis">https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis</a>
    <dt id="biblio-service-workers">[Service-Workers]
-   <dd>Alex Russell; et al. <a href="https://www.w3.org/TR/service-workers-1/"><cite>Service Workers 1</cite></a>. 19 November 2019. CR. URL: <a href="https://www.w3.org/TR/service-workers-1/">https://www.w3.org/TR/service-workers-1/</a>
+   <dd>Jake Archibald; Marijn Kruisselbrink. <a href="https://w3c.github.io/ServiceWorker/"><cite>Service Workers</cite></a>. URL: <a href="https://w3c.github.io/ServiceWorker/">https://w3c.github.io/ServiceWorker/</a>
    <dt id="biblio-url">[URL]
    <dd>Anne van Kesteren. <a href="https://url.spec.whatwg.org/"><cite>URL Standard</cite></a>. Living Standard. URL: <a href="https://url.spec.whatwg.org/">https://url.spec.whatwg.org/</a>
    <dt id="biblio-webidl">[WEBIDL]
