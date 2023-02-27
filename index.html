@@ -7,7 +7,7 @@
   <meta content="Bikeshed version f043d3484, updated Fri Feb 17 10:53:48 2023 -0800" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="5dfe3db84dda8bf859edbe0d5ec1416851422320" name="document-revision">
+  <meta content="817a36e39d3717db3be53629d32ebb1b4187d9db" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -849,7 +849,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-02-18">18 February 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-02-27">27 February 2023</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1366,7 +1366,7 @@ each member is a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="
 <c- b>dictionary</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="dictionary" data-export id="dictdef-cookieinit"><code><c- g>CookieInit</c-></code></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString⑦"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookieinit-name"><code><c- g>name</c-></code></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString⑧"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookieinit-value"><code><c- g>value</c-></code></dfn>;
-  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-epochtimestamp" id="ref-for-dom-epochtimestamp"><c- n>EpochTimeStamp</c-></a>? <dfn class="dfn-paneled idl-code" data-default="null" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="EpochTimeStamp? " id="dom-cookieinit-expires"><code><c- g>expires</c-></code></dfn> = <c- b>null</c->;
+  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp" id="ref-for-dom-domhighrestimestamp"><c- n>DOMHighResTimeStamp</c-></a>? <dfn class="dfn-paneled idl-code" data-default="null" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="DOMHighResTimeStamp? " id="dom-cookieinit-expires"><code><c- g>expires</c-></code></dfn> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString⑨"><c- b>USVString</c-></a>? <dfn class="dfn-paneled idl-code" data-default="null" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString? " id="dom-cookieinit-domain"><code><c- g>domain</c-></code></dfn> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⓪"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;/&quot;" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookieinit-path"><code><c- g>path</c-></code></dfn> = "/";
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite" id="ref-for-enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;strict&quot;" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="CookieSameSite " id="dom-cookieinit-samesite"><code><c- g>sameSite</c-></code></dfn> = "strict";
@@ -1383,7 +1383,7 @@ each member is a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⑤"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookielistitem-value"><code><c- g>value</c-></code></dfn>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⑥"><c- b>USVString</c-></a>? <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="USVString? " id="dom-cookielistitem-domain"><code><c- g>domain</c-></code><a class="self-link" href="#dom-cookielistitem-domain"></a></dfn>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⑦"><c- b>USVString</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookielistitem-path"><code><c- g>path</c-></code><a class="self-link" href="#dom-cookielistitem-path"></a></dfn>;
-  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-epochtimestamp" id="ref-for-dom-epochtimestamp①"><c- n>EpochTimeStamp</c-></a>? <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="EpochTimeStamp? " id="dom-cookielistitem-expires"><code><c- g>expires</c-></code><a class="self-link" href="#dom-cookielistitem-expires"></a></dfn>;
+  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp" id="ref-for-dom-domhighrestimestamp①"><c- n>DOMHighResTimeStamp</c-></a>? <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="DOMHighResTimeStamp? " id="dom-cookielistitem-expires"><code><c- g>expires</c-></code><a class="self-link" href="#dom-cookielistitem-expires"></a></dfn>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean"><c- b>boolean</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookielistitem-secure"><code><c- g>secure</c-></code><a class="self-link" href="#dom-cookielistitem-secure"></a></dfn>;
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite" id="ref-for-enumdef-cookiesamesite①"><c- n>CookieSameSite</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="CookieSameSite " id="dom-cookielistitem-samesite"><code><c- g>sameSite</c-></code><a class="self-link" href="#dom-cookielistitem-samesite"></a></dfn>;
 };
@@ -2139,7 +2139,7 @@ scope in a <code class="idl"><a data-link-type="idl" href="https://html.spec.wha
 return the number of milliseconds from 00:00:00 UTC, 1 January 1970 to <var>dateTime</var> (assuming that there are exactly 86,400,000 milliseconds per day). 
     <p class="note" role="note"><span class="marker">Note:</span> This is the same representation used for <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-time-values-and-time-range" id="ref-for-sec-time-values-and-time-range">time values</a> in <a data-link-type="biblio" href="#biblio-ecmascript" title="ECMAScript Language Specification">[ECMAScript]</a>.</p>
    </div>
-   <div class="algorithm" data-algorithm="date serialize"> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="date-serialize">date serialize</dfn> a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/hr-time/#dom-epochtimestamp" id="ref-for-dom-epochtimestamp②">EpochTimeStamp</a></code> <var>millis</var>,
+   <div class="algorithm" data-algorithm="date serialize"> To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="date-serialize">date serialize</dfn> a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp" id="ref-for-dom-domhighrestimestamp②">DOMHighResTimeStamp</a></code> <var>millis</var>,
 let <var>dateTime</var> be the date and time <var>millis</var> milliseconds after 00:00:00 UTC, 1 January 1970
 (assuming that there are exactly 86,400,000 milliseconds per day),
 and return a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①">byte sequence</a> corresponding to the closest <code>cookie-date</code> representation of <var>dateTime</var> according to <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-rfc6265bis.html#section-5.1.1"><cite>Cookies: HTTP State Management Mechanism</cite> § 5.1.1 Dates</a>. </div>
@@ -2799,11 +2799,11 @@ authoring advice.</p>
     <li><a href="#ref-for-concept-fetch">1.3. Querying Cookies</a>
    </ul>
   </aside>
-  <aside aria-labelledby="infopaneltitle-for-0395c6c21ea99634e2e481b3d8a57fc5" class="dfn-panel" data-for="0395c6c21ea99634e2e481b3d8a57fc5" id="infopanel-for-0395c6c21ea99634e2e481b3d8a57fc5">
-   <span id="infopaneltitle-for-0395c6c21ea99634e2e481b3d8a57fc5" style="display:none">Info about the 'EpochTimeStamp' external reference.</span><a href="https://w3c.github.io/hr-time/#dom-epochtimestamp">https://w3c.github.io/hr-time/#dom-epochtimestamp</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-0527034ee7070fda15ffa50c34dbbc63" class="dfn-panel" data-for="0527034ee7070fda15ffa50c34dbbc63" id="infopanel-for-0527034ee7070fda15ffa50c34dbbc63">
+   <span id="infopaneltitle-for-0527034ee7070fda15ffa50c34dbbc63" style="display:none">Info about the 'DOMHighResTimeStamp' external reference.</span><a href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp">https://w3c.github.io/hr-time/#dom-domhighrestimestamp</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-epochtimestamp">3. The CookieStore Interface</a> <a href="#ref-for-dom-epochtimestamp①">(2)</a>
-    <li><a href="#ref-for-dom-epochtimestamp②">7. Algorithms</a>
+    <li><a href="#ref-for-dom-domhighrestimestamp">3. The CookieStore Interface</a> <a href="#ref-for-dom-domhighrestimestamp①">(2)</a>
+    <li><a href="#ref-for-dom-domhighrestimestamp②">7. Algorithms</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-716703f1068cc638b4235f83154eff6c" class="dfn-panel" data-for="716703f1068cc638b4235f83154eff6c" id="infopanel-for-716703f1068cc638b4235f83154eff6c">
@@ -3361,7 +3361,7 @@ authoring advice.</p>
    <li>
     <a data-link-type="biblio">[HR-TIME-3]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="0395c6c21ea99634e2e481b3d8a57fc5">EpochTimeStamp</span>
+     <li><span class="dfn-paneled" id="0527034ee7070fda15ffa50c34dbbc63">DOMHighResTimeStamp</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
@@ -3514,7 +3514,7 @@ authoring advice.</p>
 <c- b>dictionary</c-> <a href="#dictdef-cookieinit"><code><c- g>CookieInit</c-></code></a> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-type="USVString " href="#dom-cookieinit-name"><code><c- g>name</c-></code></a>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-type="USVString " href="#dom-cookieinit-value"><code><c- g>value</c-></code></a>;
-  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-epochtimestamp"><c- n>EpochTimeStamp</c-></a>? <a data-default="null" data-type="EpochTimeStamp? " href="#dom-cookieinit-expires"><code><c- g>expires</c-></code></a> = <c- b>null</c->;
+  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp"><c- n>DOMHighResTimeStamp</c-></a>? <a data-default="null" data-type="DOMHighResTimeStamp? " href="#dom-cookieinit-expires"><code><c- g>expires</c-></code></a> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a>? <a data-default="null" data-type="USVString? " href="#dom-cookieinit-domain"><code><c- g>domain</c-></code></a> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-default="&quot;/&quot;" data-type="USVString " href="#dom-cookieinit-path"><code><c- g>path</c-></code></a> = "/";
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <a data-default="&quot;strict&quot;" data-type="CookieSameSite " href="#dom-cookieinit-samesite"><code><c- g>sameSite</c-></code></a> = "strict";
@@ -3531,7 +3531,7 @@ authoring advice.</p>
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-type="USVString " href="#dom-cookielistitem-value"><code><c- g>value</c-></code></a>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a>? <a data-type="USVString? " href="#dom-cookielistitem-domain"><code><c- g>domain</c-></code></a>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-type="USVString " href="#dom-cookielistitem-path"><code><c- g>path</c-></code></a>;
-  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-epochtimestamp"><c- n>EpochTimeStamp</c-></a>? <a data-type="EpochTimeStamp? " href="#dom-cookielistitem-expires"><code><c- g>expires</c-></code></a>;
+  <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp"><c- n>DOMHighResTimeStamp</c-></a>? <a data-type="DOMHighResTimeStamp? " href="#dom-cookielistitem-expires"><code><c- g>expires</c-></code></a>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean"><c- b>boolean</c-></a> <a data-type="boolean " href="#dom-cookielistitem-secure"><code><c- g>secure</c-></code></a>;
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <a data-type="CookieSameSite " href="#dom-cookielistitem-samesite"><code><c- g>sameSite</c-></code></a>;
 };
