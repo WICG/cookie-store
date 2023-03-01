@@ -4,10 +4,10 @@
   <title>Cookie Store API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <link href="https://www.w3.org/StyleSheets/TR/2021/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version f043d3484, updated Fri Feb 17 10:53:48 2023 -0800" name="generator">
+  <meta content="Bikeshed version 79b02508e, updated Tue Feb 28 10:48:19 2023 -0800" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="58258c4e4e557058ab0e79ea2a93033c5d976f18" name="document-revision">
+  <meta content="837f4f2b7a8c248197aa595e68e22fa8fde7798b" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -293,67 +293,59 @@ a[href].issue-return {
 }
 </style>
 <style>/* style-mdn-anno */
-@media (max-width: 767px) {
-	.mdn-anno {
-		opacity: .1;
-	}
-}
 :root {
 	--mdn-bg: #EEE;
 	--mdn-shadow: #999;
 	--mdn-nosupport-text: #ccc;
 }
 .mdn-anno {
-	font: 1em sans-serif;
-	padding: 0.3em;
-	position: absolute;
-	z-index: 8;
-	right: 0.3em;
 	background: var(--mdn-bg, #EEE);
-	color: var(--text, black);
+	border-radius: .25em;
 	box-shadow: 0 0 3px var(--mdn-shadow, #999);
-	overflow: hidden;
-	border-collapse: initial;
-	border-spacing: initial;
-	min-width: 9em;
+	color: var(--text, black);
+	font: 1em sans-serif;
+	hyphens: none;
 	max-width: min-content;
+	overflow: hidden;
+	padding: 0.2em;
+	position: absolute;
+	right: 0.3em;
+	top: auto;
 	white-space: nowrap;
 	word-wrap: normal;
-	hyphens: none;
-	border-radius: .25em;
+	z-index: 8;
 }
-.mdn-anno:not(.wrapped) {
-	opacity: 1;
-	z-index: 9;
-}
-.mdn-anno.wrapped {
-	min-width: 0;
-}
-.mdn-anno.wrapped > :not(button) {
+.mdn-anno.unpositioned {
 	display: none;
 }
+.mdn-anno.overlapping-main {
+	opacity: .2;
+	transition: opacity .1s;
+}
+.mdn-anno[open] {
+	opacity: 1;
+	z-index: 9;
+	min-width: 9em;
+}
 .mdn-anno:hover {
+	opacity: 1;
 	outline: var(--text, black) 1px solid;
 }
-.mdn-anno > .mdn-anno-btn {
+.mdn-anno > summary {
+	font-weight: normal;
+	text-align: right;
 	cursor: pointer;
-	border: none;
-	color: #000;
-	background: transparent;
-	margin: -8px;
-	float: right;
-	padding: 10px 8px 8px 8px;
-	outline: none;
+	display: block;
 }
-.mdn-anno > .mdn-anno-btn > .less-than-two-engines-flag {
+.mdn-anno > summary > .less-than-two-engines-flag {
 	color: red;
 	padding-right: 2px;
 }
-.mdn-anno > .mdn-anno-btn > .all-engines-flag {
+.mdn-anno > summary > .all-engines-flag {
 	color: green;
 	padding-right: 2px;
 }
-.mdn-anno > .mdn-anno-btn > span {
+.mdn-anno > summary > span {
 	color: #fff;
 	background-color: #000;
 	font-weight: normal;
@@ -849,7 +841,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-02-28">28 February 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-03-01">1 March 2023</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1196,22 +1188,6 @@ console<c- p>.</c->log<c- p>(</c-><c- sb>`Cookie scope - Domain: </c-><c- si>${<
 </pre>
    </div>
    <h3 class="heading settled" data-level="1.5" id="intro-monitor"><span class="secno">1.5. </span><span class="content">Monitoring Cookies</span><a class="self-link" href="#intro-monitor"></a></h3>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/change_event" title="A change event is fired at a CookieStore object when a change is made to any cookie.">CookieStore/change_event</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <p>To avoid polling, it is possible to observe changes to cookies.</p>
    <p>In <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-document" id="ref-for-concept-document④">documents</a>, <code>change</code> events are fired for all relevant cookie changes.</p>
    <div class="example" id="example-7e599641">
@@ -1301,38 +1277,6 @@ the subscriptions that have been made.</p>
    <p>A <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker-registration" id="ref-for-dfn-service-worker-registration②">service worker registration</a> has an associated <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cookie-change-subscription-list">cookie change subscription list</dfn> which is a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list">list</a>;
 each member is a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cookie-change-subscription">cookie change subscription</dfn>. A <a data-link-type="dfn" href="#cookie-change-subscription" id="ref-for-cookie-change-subscription">cookie change subscription</a> is <span> a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#tuple" id="ref-for-tuple">tuple</a> of <dfn class="dfn-paneled" data-dfn-for="cookie change subscription" data-dfn-type="dfn" data-noexport id="cookie-change-subscription-name">name</dfn> and <dfn class="dfn-paneled" data-dfn-for="cookie change subscription" data-dfn-type="dfn" data-noexport id="cookie-change-subscription-url">url</dfn>. </span></p>
    <h2 class="heading settled" data-level="3" id="CookieStore"><span class="secno">3. </span><span class="content">The <code class="idl"><a data-link-type="idl" href="#cookiestore" id="ref-for-cookiestore①">CookieStore</a></code> Interface</span><a class="self-link" href="#CookieStore"></a></h2>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore" title="The CookieStore interface of the &apos;Cookie Store API&apos; provides methods for getting and setting cookies asynchronously from either a page or a service worker.">CookieStore</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/change_event" title="A change event is fired at a CookieStore object when a change is made to any cookie.">CookieStore/change_event</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed" id="ref-for-Exposed"><c- g>Exposed</c-></a>=(<c- n>ServiceWorker</c->,<c- n>Window</c->),
  <a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SecureContext" id="ref-for-SecureContext"><c- g>SecureContext</c-></a>]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="cookiestore"><code><c- g>CookieStore</c-></code></dfn> : <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#eventtarget" id="ref-for-eventtarget"><c- n>EventTarget</c-></a> {
@@ -1402,22 +1346,6 @@ In a service worker context this defaults to the path of the service worker’s 
 In a document it defaults to the path of the current document and does not respect changes from <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#dom-history-replacestate" id="ref-for-dom-history-replacestate">replaceState()</a></code> or <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code>.</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/get" title="The get() method of the CookieStore interface returns a single cookie with the given name or options object. (See below.) The method will return the first matching cookie for the passed parameters.">CookieStore/get</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="get(name)" data-algorithm-for="CookieStore">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-get"><code>get(<var>name</var>)</code></dfn> method steps are: 
     <ol>
@@ -1466,7 +1394,7 @@ In a document it defaults to the path of the current document and does not respe
        <li data-md>
         <p>Let <var>parsed</var> be the result of <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-basic-url-parser" id="ref-for-concept-basic-url-parser">parsing</a> <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoregetoptions-url" id="ref-for-dom-cookiestoregetoptions-url②">url</a></code>"] with <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#api-base-url" id="ref-for-api-base-url">API base URL</a>.</p>
        <li data-md>
-        <p>If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object" id="ref-for-current-global-object">current global object</a> is a <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window①">Window</a></code> object and <var>parsed</var> does not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals">equal</a> <var>url</var>,
+        <p>If <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this②">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global" id="ref-for-concept-relevant-global">relevant global object</a> is a <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window①">Window</a></code> object and <var>parsed</var> does not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals">equal</a> <var>url</var>,
 then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-promise-rejected-with" id="ref-for-a-promise-rejected-with③">a promise rejected with</a> a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror②">TypeError</a></code>.</p>
        <li data-md>
         <p>If <var>parsed</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin">origin</a> and <var>url</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin①">origin</a> are not the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin" id="ref-for-same-origin">same origin</a>,
@@ -1503,27 +1431,11 @@ In a service worker context this defaults to the path of the service worker’s 
 In a document it defaults to the path of the current document and does not respect changes from <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#dom-history-replacestate" id="ref-for-dom-history-replacestate①">replaceState()</a></code> or <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain" id="ref-for-dom-document-domain①">document.domain</a></code>.</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/getAll" title="The getAll() method of the CookieStore interface returns a list of cookies that match the name or options passed to it. Passing no parameters will return all cookies for the current context.">CookieStore/getAll</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="getAll(name)" data-algorithm-for="CookieStore">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-getall"><code>getAll(<var>name</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this②">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object②">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this③">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object②">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin②">origin</a>.</p>
      <li data-md>
@@ -1550,7 +1462,7 @@ In a document it defaults to the path of the current document and does not respe
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export data-lt="getAll(options)|getAll()" id="dom-cookiestore-getall-options"><code>getAll(<var>options</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this③">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object③">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this④">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object③">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin③">origin</a>.</p>
      <li data-md>
@@ -1563,7 +1475,7 @@ In a document it defaults to the path of the current document and does not respe
        <li data-md>
         <p>Let <var>parsed</var> be the result of <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-basic-url-parser" id="ref-for-concept-basic-url-parser①">parsing</a> <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoregetoptions-url" id="ref-for-dom-cookiestoregetoptions-url④">url</a></code>"] with <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#api-base-url" id="ref-for-api-base-url①">API base URL</a>.</p>
        <li data-md>
-        <p>If the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object" id="ref-for-current-global-object①">current global object</a> is a <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window②">Window</a></code> object and <var>parsed</var> does not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals①">equal</a> <var>url</var>,
+        <p>If <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑤">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global" id="ref-for-concept-relevant-global①">relevant global object</a> is a <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window②">Window</a></code> object and <var>parsed</var> does not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals①">equal</a> <var>url</var>,
 then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-promise-rejected-with" id="ref-for-a-promise-rejected-with⑦">a promise rejected with</a> a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror⑥">TypeError</a></code>.</p>
        <li data-md>
         <p>If <var>parsed</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin②">origin</a> and <var>url</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin③">origin</a> are not the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#same-origin" id="ref-for-same-origin①">same origin</a>,
@@ -1607,27 +1519,11 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
       </ul>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/set" title="The set() method of the CookieStore interface sets a cookie with the given name and value or options object. (See below.)">CookieStore/set</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="set(name, value)" data-algorithm-for="CookieStore">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-set"><code>set(<var>name</var>, <var>value</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this④">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object④">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑥">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object④">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin④">origin</a>.</p>
      <li data-md>
@@ -1654,7 +1550,7 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-set-options"><code>set(<var>options</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑤">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑤">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑦">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑤">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin⑤">origin</a>.</p>
      <li data-md>
@@ -1686,27 +1582,11 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
       <p>Deletes (expires) a cookie with the given name or name and optional domain and path.</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/delete" title="The delete() method of the CookieStore interface deletes a cookie with the given name or options object. (See below.) The delete() method expires the cookie by changing the date to one in the past.">CookieStore/delete</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="delete(name)" data-algorithm-for="CookieStore">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-delete"><code>delete(<var>name</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑥">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑥">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑧">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑥">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin⑥">origin</a>.</p>
      <li data-md>
@@ -1737,7 +1617,7 @@ true, and
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStore" data-dfn-type="method" data-export id="dom-cookiestore-delete-options"><code>delete(<var>options</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑦">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑦">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑨">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑦">relevant settings object</a>.</p>
      <li data-md>
       <p>Let <var>origin</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-settings-object-origin" id="ref-for-concept-settings-object-origin⑦">origin</a>.</p>
      <li data-md>
@@ -1763,22 +1643,6 @@ true, and
    <h2 class="heading settled" data-level="4" id="CookieStoreManager"><span class="secno">4. </span><span class="content">The <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager">CookieStoreManager</a></code> Interface</span><a class="self-link" href="#CookieStoreManager"></a></h2>
    <p>A <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager①">CookieStoreManager</a></code> has an associated <dfn class="dfn-paneled" data-dfn-for="CookieStoreManager" data-dfn-type="dfn" data-noexport id="cookiestoremanager-registration">registration</dfn> which is a <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker-registration" id="ref-for-dfn-service-worker-registration③">service worker registration</a>.</p>
    <p>The <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager②">CookieStoreManager</a></code> interface allows <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker" id="ref-for-dfn-service-worker⑨">Service Workers</a> to subscribe to events for cookie changes. Using the <code class="idl"><a data-link-type="idl" href="#dom-cookiestoremanager-subscribe" id="ref-for-dom-cookiestoremanager-subscribe①">subscribe()</a></code> method is necessary to indicate that a particular <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker-registration" id="ref-for-dfn-service-worker-registration④">service worker registration</a> is interested in change events.</p>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager" title="The CookieStoreManager interface of the &apos;Cookie Store API&apos; allows service workers to subscribe to cookie change events. Call subscribe() on a particular service worker registration to receive change events.">CookieStoreManager</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed" id="ref-for-Exposed②"><c- g>Exposed</c-></a>=(<c- n>ServiceWorker</c->,<c- n>Window</c->),
  <a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SecureContext" id="ref-for-SecureContext①"><c- g>SecureContext</c-></a>]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="cookiestoremanager"><code><c- g>CookieStoreManager</c-></code></dfn> {
@@ -1796,29 +1660,13 @@ true, and
       <p>Once subscribed, notifications are delivered as "<code>cookiechange</code>" events fired against the <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker" id="ref-for-dfn-service-worker①⓪">Service Worker</a>'s global scope:</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/subscribe" title="The subscribe() method of the CookieStoreManager interface subscribes a ServiceWorkerRegistration to cookie change events.">CookieStoreManager/subscribe</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="subscribe(subscriptions)" data-algorithm-for="CookieStoreManager">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStoreManager" data-dfn-type="method" data-export id="dom-cookiestoremanager-subscribe"><code>subscribe(<var>subscriptions</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑧">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑧">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⓪">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑧">relevant settings object</a>.</p>
      <li data-md>
-      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this⑨">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration">registration</a>.</p>
+      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①①">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration">registration</a>.</p>
      <li data-md>
       <p>Let <var>p</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-new-promise" id="ref-for-a-new-promise⑧">a new promise</a>.</p>
      <li data-md>
@@ -1856,27 +1704,11 @@ then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="r
       <p>This method returns a promise which resolves to a list of the cookie change subscriptions made for this Service Worker registration.</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/getSubscriptions" title="The getSubscriptions() method of the CookieStoreManager interface returns a list of all the cookie change subscriptions for this ServiceWorkerRegistration.">CookieStoreManager/getSubscriptions</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="getSubscriptions()" data-algorithm-for="CookieStoreManager">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStoreManager" data-dfn-type="method" data-export id="dom-cookiestoremanager-getsubscriptions"><code>getSubscriptions()</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⓪">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration①">registration</a>.</p>
+      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①②">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration①">registration</a>.</p>
      <li data-md>
       <p>Let <var>p</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-new-promise" id="ref-for-a-new-promise⑨">a new promise</a>.</p>
      <li data-md>
@@ -1907,29 +1739,13 @@ then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="r
       <p>Calling this method will stop the registered service worker from receiving previously subscribed events. The <var>subscriptions</var> argument should list subscriptions in the same form passed to <code class="idl"><a data-link-type="idl" href="#dom-cookiestoremanager-subscribe" id="ref-for-dom-cookiestoremanager-subscribe⑤">subscribe()</a></code> or returned from <code class="idl"><a data-link-type="idl" href="#dom-cookiestoremanager-getsubscriptions" id="ref-for-dom-cookiestoremanager-getsubscriptions④">getSubscriptions()</a></code>.</p>
     </dl>
    </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/unsubscribe" title="The unsubscribe() method of the CookieStoreManager interface stops the ServiceWorkerRegistration from receiving previously subscribed events.">CookieStoreManager/unsubscribe</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <div class="algorithm" data-algorithm="unsubscribe(subscriptions)" data-algorithm-for="CookieStoreManager">
      The <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStoreManager" data-dfn-type="method" data-export id="dom-cookiestoremanager-unsubscribe"><code>unsubscribe(<var>subscriptions</var>)</code></dfn> method steps are: 
     <ol>
      <li data-md>
-      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①①">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑨">relevant settings object</a>.</p>
+      <p>Let <var>settings</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①③">this</a>'s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object" id="ref-for-relevant-settings-object⑨">relevant settings object</a>.</p>
      <li data-md>
-      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①②">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration②">registration</a>.</p>
+      <p>Let <var>registration</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①④">this</a>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration②">registration</a>.</p>
      <li data-md>
       <p>Let <var>p</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-new-promise" id="ref-for-a-new-promise①⓪">a new promise</a>.</p>
      <li data-md>
@@ -1968,7 +1784,7 @@ then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="r
 </pre>
    <p>Each <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerregistration" id="ref-for-serviceworkerregistration③">ServiceWorkerRegistration</a></code> has an associated <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager⑤">CookieStoreManager</a></code> object.
 The <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager⑥">CookieStoreManager</a></code>'s <a data-link-type="dfn" href="#cookiestoremanager-registration" id="ref-for-cookiestoremanager-registration③">registration</a> is equal to the <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerregistration" id="ref-for-serviceworkerregistration④">ServiceWorkerRegistration</a></code>'s <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker-registration" id="ref-for-dfn-service-worker-registration⑤">service worker registration</a>.</p>
-   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerRegistration" data-dfn-type="attribute" data-export id="dom-serviceworkerregistration-cookies"><code>cookies</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①③">this</a>'s associated <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager⑦">CookieStoreManager</a></code> object.</p>
+   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerRegistration" data-dfn-type="attribute" data-export id="dom-serviceworkerregistration-cookies"><code>cookies</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑤">this</a>'s associated <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref-for-cookiestoremanager⑦">CookieStoreManager</a></code> object.</p>
    <div class="example" id="example-45f94580">
     <a class="self-link" href="#example-45f94580"></a> Subscribing to cookie changes from a Service Worker script: 
 <pre class="language-js highlight">self<c- p>.</c->registration<c- p>.</c->cookies<c- p>.</c->subscribe<c- p>([{</c->name<c- o>:</c-><c- t>'session-id'</c-><c- p>}]);</c->
@@ -1983,65 +1799,7 @@ The <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref
    </div>
    <h2 class="heading settled" data-level="5" id="event-interfaces"><span class="secno">5. </span><span class="content">Event Interfaces</span><a class="self-link" href="#event-interfaces"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="CookieChangeEvent"><span class="secno">5.1. </span><span class="content">The <code class="idl"><a data-link-type="idl" href="#cookiechangeevent" id="ref-for-cookiechangeevent">CookieChangeEvent</a></code> interface</span><a class="self-link" href="#CookieChangeEvent"></a></h3>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent" title="The CookieChangeEvent interface of the &apos;Cookie Store API&apos; is the event type passed to CookieStore.onchange() when any cookie changes occur. A cookie change consists of a cookie and a type (either &quot;changed&quot; or &quot;deleted&quot;).">CookieChangeEvent</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <p>A <code class="idl"><a data-link-type="idl" href="#cookiechangeevent" id="ref-for-cookiechangeevent①">CookieChangeEvent</a></code> is <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-dispatch" id="ref-for-concept-event-dispatch">dispatched</a> against <code class="idl"><a data-link-type="idl" href="#cookiestore" id="ref-for-cookiestore②">CookieStore</a></code> objects in <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window③">Window</a></code> contexts when any <a data-link-type="dfn" href="#script-visible" id="ref-for-script-visible④">script-visible</a> cookie changes have occurred.</p>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/CookieChangeEvent" title="The CookieChangeEvent() constructor creates a new CookieChangeEvent object which is the event type passed to CookieStore.onchange(). This constructor is called by the browser when a change event occurs.">CookieChangeEvent/CookieChangeEvent</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/changed" title="The changed read-only property of the CookieChangeEvent interface returns an array of the cookies that have been changed.">CookieChangeEvent/changed</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/deleted" title="The deleted read-only property of the CookieChangeEvent interface returns an array of the cookies that have been deleted by the given CookieChangeEvent instance.">CookieChangeEvent/deleted</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed" id="ref-for-Exposed④"><c- g>Exposed</c-></a>=<c- n>Window</c->,
  <a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SecureContext" id="ref-for-SecureContext②"><c- g>SecureContext</c-></a>]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="cookiechangeevent"><code><c- g>CookieChangeEvent</c-></code></dfn> : <a data-link-type="idl-name" href="https://dom.spec.whatwg.org/#event" id="ref-for-event"><c- n>Event</c-></a> {
@@ -2057,66 +1815,8 @@ The <code class="idl"><a data-link-type="idl" href="#cookiestoremanager" id="ref
 </pre>
    <p>The <code class="idl"><a data-link-type="idl" href="#dom-cookiechangeevent-changed" id="ref-for-dom-cookiechangeevent-changed">changed</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-cookiechangeevent-deleted" id="ref-for-dom-cookiechangeevent-deleted">deleted</a></code> attributes must return the value they were initialized to.</p>
    <h3 class="heading settled" data-level="5.2" id="ExtendableCookieChangeEvent"><span class="secno">5.2. </span><span class="content">The <code class="idl"><a data-link-type="idl" href="#extendablecookiechangeevent" id="ref-for-extendablecookiechangeevent">ExtendableCookieChangeEvent</a></code> interface</span><a class="self-link" href="#ExtendableCookieChangeEvent"></a></h3>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent" title="The ExtendableCookieChangeEvent interface of the&apos;Cookie Store API&apos; is the event type passed to ServiceWorkerRegistration.oncookiechange() when any cookie changes occur. A cookie change event consists of a cookie and a type (either &quot;changed&quot; or &quot;deleted&quot;.)">ExtendableCookieChangeEvent</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
    <p>An <code class="idl"><a data-link-type="idl" href="#extendablecookiechangeevent" id="ref-for-extendablecookiechangeevent①">ExtendableCookieChangeEvent</a></code> is <a data-link-type="dfn" href="https://dom.spec.whatwg.org/#concept-event-dispatch" id="ref-for-concept-event-dispatch①">dispatched</a> against <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope">ServiceWorkerGlobalScope</a></code> objects when any <a data-link-type="dfn" href="#script-visible" id="ref-for-script-visible⑤">script-visible</a> cookie changes have occurred which match the <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker" id="ref-for-dfn-service-worker①①">Service Worker</a>'s <a data-link-type="dfn" href="#cookie-change-subscription-list" id="ref-for-cookie-change-subscription-list③">cookie change subscription list</a>.</p>
    <p class="note" role="note"><span class="marker">Note:</span> <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#extendableevent" id="ref-for-extendableevent">ExtendableEvent</a></code> is used as the ancestor interface for all events in <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker" id="ref-for-dfn-service-worker①②">Service Workers</a> so that the worker itself can be kept alive while the async operations are performed.</p>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/ExtendableCookieChangeEvent" title="The ExtendableCookieChangeEvent() constructor creates a new ExtendableCookieChangeEvent object which is the event type passed to ServiceWorkerRegistration.oncookiechange(). This constructor is called by the browser when a change event occurs.">ExtendableCookieChangeEvent/ExtendableCookieChangeEvent</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/changed" title="The changed read-only property of the ExtendableCookieChangeEvent interface returns any cookies that have been changed by the given ExtendableCookieChangeEvent instance.">ExtendableCookieChangeEvent/changed</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/deleted" title="The deleted read-only property of the ExtendableCookieChangeEvent interface returns any cookies that have been deleted by the given ExtendableCookieChangeEvent instance.">ExtendableCookieChangeEvent/deleted</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
-      <hr>
-      <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
-     </div>
-    </div>
-   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed" id="ref-for-Exposed⑤"><c- g>Exposed</c-></a>=<c- n>ServiceWorker</c->]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="extendablecookiechangeevent"><code><c- g>ExtendableCookieChangeEvent</c-></code></dfn> : <a data-link-type="idl-name" href="https://w3c.github.io/ServiceWorker/#extendableevent" id="ref-for-extendableevent①"><c- n>ExtendableEvent</c-></a> {
   <dfn class="idl-code" data-dfn-for="ExtendableCookieChangeEvent" data-dfn-type="constructor" data-export data-lt="ExtendableCookieChangeEvent(type, eventInitDict)|constructor(type, eventInitDict)|ExtendableCookieChangeEvent(type)|constructor(type)" id="dom-extendablecookiechangeevent-extendablecookiechangeevent"><code><c- g>constructor</c-></code><a class="self-link" href="#dom-extendablecookiechangeevent-extendablecookiechangeevent"></a></dfn>(<a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-DOMString" id="ref-for-idl-DOMString①"><c- b>DOMString</c-></a> <dfn class="idl-code" data-dfn-for="ExtendableCookieChangeEvent/ExtendableCookieChangeEvent(type, eventInitDict), ExtendableCookieChangeEvent/constructor(type, eventInitDict), ExtendableCookieChangeEvent/ExtendableCookieChangeEvent(type), ExtendableCookieChangeEvent/constructor(type)" data-dfn-type="argument" data-export id="dom-extendablecookiechangeevent-extendablecookiechangeevent-type-eventinitdict-type"><code><c- g>type</c-></code><a class="self-link" href="#dom-extendablecookiechangeevent-extendablecookiechangeevent-type-eventinitdict-type"></a></dfn>, <c- b>optional</c-> <a data-link-type="idl-name" href="#dictdef-extendablecookiechangeeventinit" id="ref-for-dictdef-extendablecookiechangeeventinit"><c- n>ExtendableCookieChangeEventInit</c-></a> <dfn class="idl-code" data-dfn-for="ExtendableCookieChangeEvent/ExtendableCookieChangeEvent(type, eventInitDict), ExtendableCookieChangeEvent/constructor(type, eventInitDict), ExtendableCookieChangeEvent/ExtendableCookieChangeEvent(type), ExtendableCookieChangeEvent/constructor(type)" data-dfn-type="argument" data-export id="dom-extendablecookiechangeevent-extendablecookiechangeevent-type-eventinitdict-eventinitdict"><code><c- g>eventInitDict</c-></code><a class="self-link" href="#dom-extendablecookiechangeevent-extendablecookiechangeevent-type-eventinitdict-eventinitdict"></a></dfn> = {});
@@ -2140,7 +1840,7 @@ scope in a <code class="idl"><a data-link-type="idl" href="https://html.spec.wha
 };
 </pre>
    <p>A <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window" id="ref-for-window⑦">Window</a></code> has an <dfn class="dfn-paneled" data-dfn-for="Window" data-dfn-type="dfn" data-noexport id="window-associated-cookiestore">associated CookieStore</dfn>, which is a <code class="idl"><a data-link-type="idl" href="#cookiestore" id="ref-for-cookiestore⑤">CookieStore</a></code>.</p>
-   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="Window" data-dfn-type="attribute" data-export id="dom-window-cookiestore"><code>cookieStore</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①④">this</a>'s <a data-link-type="dfn" href="#window-associated-cookiestore" id="ref-for-window-associated-cookiestore">associated CookieStore</a>.</p>
+   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="Window" data-dfn-type="attribute" data-export id="dom-window-cookiestore"><code>cookieStore</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑥">this</a>'s <a data-link-type="dfn" href="#window-associated-cookiestore" id="ref-for-window-associated-cookiestore">associated CookieStore</a>.</p>
    <h3 class="heading settled" data-level="6.2" id="ServiceWorkerGlobalScope"><span class="secno">6.2. </span><span class="content">The <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope②">ServiceWorkerGlobalScope</a></code> interface</span><a class="self-link" href="#ServiceWorkerGlobalScope"></a></h3>
 <pre class="idl highlight def"><c- b>partial</c-> <c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope③"><c- g>ServiceWorkerGlobalScope</c-></a> {
   [<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SameObject" id="ref-for-SameObject⑥"><c- g>SameObject</c-></a>] <c- b>readonly</c-> <c- b>attribute</c-> <a data-link-type="idl-name" href="#cookiestore" id="ref-for-cookiestore⑥"><c- n>CookieStore</c-></a> <a class="idl-code" data-link-type="attribute" data-readonly data-type="CookieStore" href="#dom-serviceworkerglobalscope-cookiestore" id="ref-for-dom-serviceworkerglobalscope-cookiestore"><c- g>cookieStore</c-></a>;
@@ -2149,7 +1849,7 @@ scope in a <code class="idl"><a data-link-type="idl" href="https://html.spec.wha
 };
 </pre>
    <p>A <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope④">ServiceWorkerGlobalScope</a></code> has an <dfn class="dfn-paneled" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="dfn" data-noexport id="serviceworkerglobalscope-associated-cookiestore">associated CookieStore</dfn>, which is a <code class="idl"><a data-link-type="idl" href="#cookiestore" id="ref-for-cookiestore⑦">CookieStore</a></code>.</p>
-   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-cookiestore"><code>cookieStore</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑤">this</a>'s <a data-link-type="dfn" href="#serviceworkerglobalscope-associated-cookiestore" id="ref-for-serviceworkerglobalscope-associated-cookiestore">associated CookieStore</a>.</p>
+   <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-cookiestore"><code>cookieStore</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑦">this</a>'s <a data-link-type="dfn" href="#serviceworkerglobalscope-associated-cookiestore" id="ref-for-serviceworkerglobalscope-associated-cookiestore">associated CookieStore</a>.</p>
    <h2 class="heading settled" data-level="7" id="algorithms"><span class="secno">7. </span><span class="content">Algorithms</span><a class="self-link" href="#algorithms"></a></h2>
    <p><a data-link-type="dfn" href="#cookie" id="ref-for-cookie④">Cookie</a> attribute-values are stored as <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence">byte sequences</a>, not strings.</p>
    <p>To encode a <var>string</var>, run <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode">UTF-8 encode</a> on <var>string</var>.</p>
@@ -2872,13 +2572,6 @@ authoring advice.</p>
     <li><a href="#ref-for-concept-environment-creation-url⑧">7.4. Process Changes</a>
    </ul>
   </aside>
-  <aside aria-labelledby="infopaneltitle-for-6c23c1976c1702789d8f6e0dadba625f" class="dfn-panel" data-for="6c23c1976c1702789d8f6e0dadba625f" id="infopanel-for-6c23c1976c1702789d8f6e0dadba625f">
-   <span id="infopaneltitle-for-6c23c1976c1702789d8f6e0dadba625f" style="display:none">Info about the 'current global object' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object">https://html.spec.whatwg.org/multipage/webappapis.html#current-global-object</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-current-global-object">3.1. The get() method</a>
-    <li><a href="#ref-for-current-global-object①">3.2. The getAll() method</a>
-   </ul>
-  </aside>
   <aside aria-labelledby="infopaneltitle-for-819da64c021c76d5b5101cd2634d02f7" class="dfn-panel" data-for="819da64c021c76d5b5101cd2634d02f7" id="infopanel-for-819da64c021c76d5b5101cd2634d02f7">
    <span id="infopaneltitle-for-819da64c021c76d5b5101cd2634d02f7" style="display:none">Info about the 'dom manipulation task source' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webappapis.html#dom-manipulation-task-source">https://html.spec.whatwg.org/multipage/webappapis.html#dom-manipulation-task-source</a><b>Referenced in:</b>
    <ul>
@@ -2934,6 +2627,13 @@ authoring advice.</p>
    <span id="infopaneltitle-for-a8756513b792b8f203588906035a13bb" style="display:none">Info about the 'queue a global task' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-global-task">https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-global-task</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-queue-a-global-task">7.4. Process Changes</a>
+   </ul>
+  </aside>
+  <aside aria-labelledby="infopaneltitle-for-2233058c8f0998915af8393ee2abbc1d" class="dfn-panel" data-for="2233058c8f0998915af8393ee2abbc1d" id="infopanel-for-2233058c8f0998915af8393ee2abbc1d">
+   <span id="infopaneltitle-for-2233058c8f0998915af8393ee2abbc1d" style="display:none">Info about the 'relevant global object' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global">https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-concept-relevant-global">3.1. The get() method</a>
+    <li><a href="#ref-for-concept-relevant-global①">3.2. The getAll() method</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-bfb9cb6617f81a424ab20212af73bae3" class="dfn-panel" data-for="bfb9cb6617f81a424ab20212af73bae3" id="infopanel-for-bfb9cb6617f81a424ab20212af73bae3">
@@ -3324,16 +3024,16 @@ authoring advice.</p>
   <aside aria-labelledby="infopaneltitle-for-be0933df03cd63338f98de217c4158c7" class="dfn-panel" data-for="be0933df03cd63338f98de217c4158c7" id="infopanel-for-be0933df03cd63338f98de217c4158c7">
    <span id="infopaneltitle-for-be0933df03cd63338f98de217c4158c7" style="display:none">Info about the 'this' external reference.</span><a href="https://webidl.spec.whatwg.org/#this">https://webidl.spec.whatwg.org/#this</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-this">3.1. The get() method</a> <a href="#ref-for-this①">(2)</a>
-    <li><a href="#ref-for-this②">3.2. The getAll() method</a> <a href="#ref-for-this③">(2)</a>
-    <li><a href="#ref-for-this④">3.3. The set() method</a> <a href="#ref-for-this⑤">(2)</a>
-    <li><a href="#ref-for-this⑥">3.4. The delete() method</a> <a href="#ref-for-this⑦">(2)</a>
-    <li><a href="#ref-for-this⑧">4.1. The subscribe() method</a> <a href="#ref-for-this⑨">(2)</a>
-    <li><a href="#ref-for-this①⓪">4.2. The getSubscriptions() method</a>
-    <li><a href="#ref-for-this①①">4.3. The unsubscribe() method</a> <a href="#ref-for-this①②">(2)</a>
-    <li><a href="#ref-for-this①③">4.4. The ServiceWorkerRegistration interface</a>
-    <li><a href="#ref-for-this①④">6.1. The Window interface</a>
-    <li><a href="#ref-for-this①⑤">6.2. The ServiceWorkerGlobalScope interface</a>
+    <li><a href="#ref-for-this">3.1. The get() method</a> <a href="#ref-for-this①">(2)</a> <a href="#ref-for-this②">(3)</a>
+    <li><a href="#ref-for-this③">3.2. The getAll() method</a> <a href="#ref-for-this④">(2)</a> <a href="#ref-for-this⑤">(3)</a>
+    <li><a href="#ref-for-this⑥">3.3. The set() method</a> <a href="#ref-for-this⑦">(2)</a>
+    <li><a href="#ref-for-this⑧">3.4. The delete() method</a> <a href="#ref-for-this⑨">(2)</a>
+    <li><a href="#ref-for-this①⓪">4.1. The subscribe() method</a> <a href="#ref-for-this①①">(2)</a>
+    <li><a href="#ref-for-this①②">4.2. The getSubscriptions() method</a>
+    <li><a href="#ref-for-this①③">4.3. The unsubscribe() method</a> <a href="#ref-for-this①④">(2)</a>
+    <li><a href="#ref-for-this①⑤">4.4. The ServiceWorkerRegistration interface</a>
+    <li><a href="#ref-for-this①⑥">6.1. The Window interface</a>
+    <li><a href="#ref-for-this①⑦">6.2. The ServiceWorkerGlobalScope interface</a>
    </ul>
   </aside>
   <aside aria-labelledby="infopaneltitle-for-cee863f1f2ec91066cfb7f5d309d59dc" class="dfn-panel" data-for="cee863f1f2ec91066cfb7f5d309d59dc" id="infopanel-for-cee863f1f2ec91066cfb7f5d309d59dc">
@@ -3387,7 +3087,6 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="c882bc89f1141c15f3f863244b6a9ef0">api base url</span>
      <li><span class="dfn-paneled" id="47cac6013aef2815a6f57a6a42eaafce">cookie</span>
      <li><span class="dfn-paneled" id="b3468b355b1c2ba8a5dda6d2bd791448">creation url</span>
-     <li><span class="dfn-paneled" id="6c23c1976c1702789d8f6e0dadba625f">current global object</span>
      <li><span class="dfn-paneled" id="819da64c021c76d5b5101cd2634d02f7">dom manipulation task source</span>
      <li><span class="dfn-paneled" id="3b597d41857f5e9275bb5cdecc55e21e">domain</span>
      <li><span class="dfn-paneled" id="3a2763fcaa6bc82693554cf36780c0dd">in parallel</span>
@@ -3395,6 +3094,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="23307d34220e7159f8e5d8c231db141f">opaque origin</span>
      <li><span class="dfn-paneled" id="a95cc6f0be910557a60537e0256920b2">origin</span>
      <li><span class="dfn-paneled" id="a8756513b792b8f203588906035a13bb">queue a global task</span>
+     <li><span class="dfn-paneled" id="2233058c8f0998915af8393ee2abbc1d">relevant global object</span>
      <li><span class="dfn-paneled" id="bfb9cb6617f81a424ab20212af73bae3">relevant settings object</span>
      <li><span class="dfn-paneled" id="83c4bcec10fb71570bd70dc41c82a7f9">replaceState(data, unused, url)</span>
      <li><span class="dfn-paneled" id="3bd07dd1ec2f367091cfd0df47c118a5">same origin</span>
@@ -4178,6 +3878,354 @@ authoring advice.</p>
     <li><a href="#ref-for-prepare-lists">7.4. Process Changes</a> <a href="#ref-for-prepare-lists①">(2)</a>
    </ul>
   </aside>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiechangeevent-cookiechangeevent">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/CookieChangeEvent" title="The CookieChangeEvent() constructor creates a new CookieChangeEvent object which is the event type passed to CookieStore.onchange(). This constructor is called by the browser when a change event occurs.">CookieChangeEvent/CookieChangeEvent</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiechangeevent-changed">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/changed" title="The changed read-only property of the CookieChangeEvent interface returns an array of the cookies that have been changed.">CookieChangeEvent/changed</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiechangeevent-deleted">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent/deleted" title="The deleted read-only property of the CookieChangeEvent interface returns an array of the cookies that have been deleted by the given CookieChangeEvent instance.">CookieChangeEvent/deleted</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="CookieChangeEvent">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieChangeEvent" title="The CookieChangeEvent interface of the &apos;Cookie Store API&apos; is the event type passed to CookieStore.onchange() when any cookie changes occur. A cookie change consists of a cookie and a type (either &quot;changed&quot; or &quot;deleted&quot;).">CookieChangeEvent</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="intro-monitor">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/change_event" title="A change event is fired at a CookieStore object when a change is made to any cookie.">CookieStore/change_event</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestore-onchange">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/change_event" title="A change event is fired at a CookieStore object when a change is made to any cookie.">CookieStore/change_event</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestore-delete">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/delete" title="The delete() method of the CookieStore interface deletes a cookie with the given name or options object. (See below.) The delete() method expires the cookie by changing the date to one in the past.">CookieStore/delete</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestore-get">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/get" title="The get() method of the CookieStore interface returns a single cookie with the given name or options object. (See below.) The method will return the first matching cookie for the passed parameters.">CookieStore/get</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestore-getall">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/getAll" title="The getAll() method of the CookieStore interface returns a list of cookies that match the name or options passed to it. Passing no parameters will return all cookies for the current context.">CookieStore/getAll</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestore-set">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore/set" title="The set() method of the CookieStore interface sets a cookie with the given name and value or options object. (See below.)">CookieStore/set</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="CookieStore">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore" title="The CookieStore interface of the &apos;Cookie Store API&apos; provides methods for getting and setting cookies asynchronously from either a page or a service worker.">CookieStore</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestoremanager-getsubscriptions">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/getSubscriptions" title="The getSubscriptions() method of the CookieStoreManager interface returns a list of all the cookie change subscriptions for this ServiceWorkerRegistration.">CookieStoreManager/getSubscriptions</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestoremanager-subscribe">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/subscribe" title="The subscribe() method of the CookieStoreManager interface subscribes a ServiceWorkerRegistration to cookie change events.">CookieStoreManager/subscribe</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-cookiestoremanager-unsubscribe">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager/unsubscribe" title="The unsubscribe() method of the CookieStoreManager interface stops the ServiceWorkerRegistration from receiving previously subscribed events.">CookieStoreManager/unsubscribe</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="cookiestoremanager">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStoreManager" title="The CookieStoreManager interface of the &apos;Cookie Store API&apos; allows service workers to subscribe to cookie change events. Call subscribe() on a particular service worker registration to receive change events.">CookieStoreManager</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-extendablecookiechangeevent-extendablecookiechangeevent">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/ExtendableCookieChangeEvent" title="The ExtendableCookieChangeEvent() constructor creates a new ExtendableCookieChangeEvent object which is the event type passed to ServiceWorkerRegistration.oncookiechange(). This constructor is called by the browser when a change event occurs.">ExtendableCookieChangeEvent/ExtendableCookieChangeEvent</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-extendablecookiechangeevent-changed">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/changed" title="The changed read-only property of the ExtendableCookieChangeEvent interface returns any cookies that have been changed by the given ExtendableCookieChangeEvent instance.">ExtendableCookieChangeEvent/changed</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="dom-extendablecookiechangeevent-deleted">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent/deleted" title="The deleted read-only property of the ExtendableCookieChangeEvent interface returns any cookies that have been deleted by the given ExtendableCookieChangeEvent instance.">ExtendableCookieChangeEvent/deleted</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+  <details class="mdn-anno unpositioned" data-anno-for="ExtendableCookieChangeEvent">
+   <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
+   <div class="feature">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableCookieChangeEvent" title="The ExtendableCookieChangeEvent interface of the&apos;Cookie Store API&apos; is the event type passed to ServiceWorkerRegistration.oncookiechange() when any cookie changes occur. A cookie change event consists of a cookie and a type (either &quot;changed&quot; or &quot;deleted&quot;.)">ExtendableCookieChangeEvent</a></p>
+    <p class="less-than-two-engines-text">In only one current engine.</p>
+    <div class="support">
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>87+</span></span>
+     <hr>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>87+</span></span>
+     <hr>
+     <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+     <hr>
+     <span class="firefox_android no"><span>Firefox for Android</span><span>?</span></span><span class="safari_ios no"><span>iOS Safari</span><span>?</span></span><span class="chrome_android no"><span>Chrome for Android</span><span>?</span></span><span class="webview_android no"><span>Android WebView</span><span>?</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>?</span></span><span class="opera_android no"><span>Opera Mobile</span><span>?</span></span>
+    </div>
+   </div>
+  </details>
+<script>/* position-annos */
+"use strict";
+{
+
+function repositionAnnoPanels(){
+    const panels = [...document.querySelectorAll("[data-anno-for]")];
+    const main = document.querySelector("main");
+    let mainRect;
+    if(main) mainRect = main.getBoundingClientRect();
+    for(const panel of panels) {
+        const dfn = document.getElementById(panel.getAttribute("data-anno-for"));
+        if(!dfn) {
+            console.log("Can't find the annotation panel target:", panel);
+            continue;
+        }
+        const rect = dfn.getBoundingClientRect();
+        const top = window.scrollY + rect.top
+        panel.style.top = top + "px";
+        panel.top = top;
+        panel.height = rect.height;
+        panel.classList.remove("unpositioned");
+        const panelRect = panel.getBoundingClientRect()
+        if(main) {
+            panel.classList.toggle("overlapping-main", panelRect.left < mainRect.right)
+        }
+    }
+    let vSoFar = 0;
+    for(const panel of panels.sort(cmpTops)) {
+        console.log(panel.top, vSoFar);
+        if(panel.top < vSoFar) {
+            panel.top = vSoFar;
+            panel.style.top = vSoFar + "px";
+        }
+        vSoFar = panel.top + panel.height + 15;
+    }
+}
+
+function cmpTops(a,b) {
+    return a.top - b.top;
+}
+
+window.addEventListener("load", repositionAnnoPanels);
+window.addEventListener("resize", repositionAnnoPanels);
+}</script>
 <script>/* script-dfn-panel */
 "use strict";
 {
@@ -4288,12 +4336,6 @@ authoring advice.</p>
     }
 }
 </script>
-<script>/* script-mdn-anno */
-document.body.addEventListener("click", (e) => {
-    if(e.target.closest(".mdn-anno-btn")) {
-        e.target.closest(".mdn-anno").classList.toggle("wrapped");
-    }
-});</script>
 <script>/* script-var-click-highlighting */
 
     "use strict";
