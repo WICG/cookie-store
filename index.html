@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 5edf5e459, updated Thu Jun 22 11:28:01 2023 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="962cfd245b875d634b44e2696583e15755e3ba20" name="document-revision">
+  <meta content="c9c5c0827206901ccc4e7602189a2ffc54577009" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -912,7 +912,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-07-07">7 July 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-07-10">10 July 2023</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1331,16 +1331,17 @@ the subscriptions that have been made.</p>
     <li data-md>
      <p>The length of every field except the name and value fields must not be greater than 1024 <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte" id="ref-for-byte①">bytes</a> (the <dfn class="dfn-paneled" data-dfn-for="cookie" data-dfn-type="dfn" data-noexport id="cookie-maximum-attribute-value-size">maximum attribute value size</dfn>).</p>
    </ul>
+   <p class="note" role="note"><span class="marker">NOTE:</span> <a data-link-type="dfn" href="#cookie" id="ref-for-cookie①">Cookie</a> attribute-values are stored as <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence">byte sequences</a>, not strings.</p>
    <h3 class="heading settled" data-level="2.2" id="cookie-store--concept"><span class="secno">2.2. </span><span class="content">Cookie Store</span><a class="self-link" href="#cookie-store--concept"></a></h3>
    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="cookie-store">cookie store</dfn> is normatively defined for user agents by <a data-link-type="biblio" href="#biblio-rfc6265bis" title="Cookies: HTTP State Management Mechanism">Cookies: HTTP State Management Mechanism §User Agent Requirements</a>.</p>
    <p>When any of the following conditions occur for a <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store">cookie store</a>, perform the steps to <a data-link-type="dfn" href="#process-cookie-changes" id="ref-for-process-cookie-changes">process cookie changes</a>.</p>
    <ul>
     <li data-md>
-     <p>A newly-created <a data-link-type="dfn" href="#cookie" id="ref-for-cookie①">cookie</a> is inserted into the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store①">cookie store</a>.</p>
+     <p>A newly-created <a data-link-type="dfn" href="#cookie" id="ref-for-cookie②">cookie</a> is inserted into the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store①">cookie store</a>.</p>
     <li data-md>
-     <p>A user agent evicts expired <a data-link-type="dfn" href="#cookie" id="ref-for-cookie②">cookies</a> from the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store②">cookie store</a>.</p>
+     <p>A user agent evicts expired <a data-link-type="dfn" href="#cookie" id="ref-for-cookie③">cookies</a> from the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store②">cookie store</a>.</p>
     <li data-md>
-     <p>A user agent removes excess <a data-link-type="dfn" href="#cookie" id="ref-for-cookie③">cookies</a> from the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store③">cookie store</a>.</p>
+     <p>A user agent removes excess <a data-link-type="dfn" href="#cookie" id="ref-for-cookie④">cookies</a> from the <a data-link-type="dfn" href="#cookie-store" id="ref-for-cookie-store③">cookie store</a>.</p>
    </ul>
    <h3 class="heading settled" data-level="2.3" id="service-worker-extensions"><span class="secno">2.3. </span><span class="content">Extensions to Service Worker</span><a class="self-link" href="#service-worker-extensions"></a></h3>
    <p><a data-link-type="biblio" href="#biblio-service-workers" title="Service Workers">[Service-Workers]</a> defines <a data-link-type="dfn" href="https://w3c.github.io/ServiceWorker/#dfn-service-worker-registration" id="ref-for-dfn-service-worker-registration①">service worker registration</a>, which this specification extends.</p>
@@ -1921,9 +1922,6 @@ scope in a <code class="idl"><a data-link-type="idl" href="https://html.spec.wha
    <p>A <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope" id="ref-for-serviceworkerglobalscope④">ServiceWorkerGlobalScope</a></code> has an <dfn class="dfn-paneled" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="dfn" data-noexport id="serviceworkerglobalscope-associated-cookiestore">associated CookieStore</dfn>, which is a <code class="idl"><a data-link-type="idl" href="#cookiestore" id="ref-for-cookiestore⑦">CookieStore</a></code>.</p>
    <p>The <dfn class="dfn-paneled idl-code" data-dfn-for="ServiceWorkerGlobalScope" data-dfn-type="attribute" data-export id="dom-serviceworkerglobalscope-cookiestore"><code>cookieStore</code></dfn> getter steps are to return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#this" id="ref-for-this①⑦">this</a>'s <a data-link-type="dfn" href="#serviceworkerglobalscope-associated-cookiestore" id="ref-for-serviceworkerglobalscope-associated-cookiestore">associated CookieStore</a>.</p>
    <h2 class="heading settled" data-level="7" id="algorithms"><span class="secno">7. </span><span class="content">Algorithms</span><a class="self-link" href="#algorithms"></a></h2>
-   <p><a data-link-type="dfn" href="#cookie" id="ref-for-cookie④">Cookie</a> attribute-values are stored as <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence">byte sequences</a>, not strings.</p>
-   <p>To encode a <var>string</var>, run <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode">UTF-8 encode</a> on <var>string</var>.</p>
-   <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="decode">decode</dfn> a <var>value</var>, run <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom">UTF-8 decode without BOM</a> on <var>value</var>.</p>
    <div class="algorithm" data-algorithm="as a timestamp">
      To represent a date and time <var>dateTime</var> <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="as-a-timestamp">as a timestamp</dfn>,
 return the number of milliseconds from 00:00:00 UTC, 1 January 1970 to <var>dateTime</var> (assuming that there are exactly 86,400,000 milliseconds per day). 
@@ -1955,7 +1953,7 @@ The <var>cookie-string</var> itself is ignored, but the intermediate <var>cookie
         <p>If <var>name</var> is given, then run these steps:</p>
         <ol>
          <li data-md>
-          <p>Let <var>cookieName</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name①">name</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode">decoded</a>).</p>
+          <p>Let <var>cookieName</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name①">name</a>.</p>
          <li data-md>
           <p>If <var>cookieName</var> does not equal <var>name</var>,
  then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#iteration-continue" id="ref-for-iteration-continue">continue</a>.</p>
@@ -1973,13 +1971,13 @@ The <var>cookie-string</var> itself is ignored, but the intermediate <var>cookie
     <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="create-a-cookielistitem">create a <code class="idl"><a data-link-type="idl" href="#dictdef-cookielistitem" id="ref-for-dictdef-cookielistitem⑦">CookieListItem</a></code></dfn> from <var>cookie</var>, run the following steps.</p>
     <ol>
      <li data-md>
-      <p>Let <var>name</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name②">name</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode①">decoded</a>).</p>
+      <p>Let <var>name</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom①">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name②">name</a>.</p>
      <li data-md>
-      <p>Let <var>value</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-value" id="ref-for-cookie-value①">value</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode②">decoded</a>).</p>
+      <p>Let <var>value</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom②">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-value" id="ref-for-cookie-value①">value</a>.</p>
      <li data-md>
-      <p>Let <var>domain</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-domain" id="ref-for-cookie-domain">domain</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode③">decoded</a>).</p>
+      <p>Let <var>domain</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom③">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-domain" id="ref-for-cookie-domain">domain</a>.</p>
      <li data-md>
-      <p>Let <var>path</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-path" id="ref-for-cookie-path">path</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode④">decoded</a>).</p>
+      <p>Let <var>path</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom④">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-path" id="ref-for-cookie-path">path</a>.</p>
      <li data-md>
       <p>Let <var>expires</var> be <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-expiry-time" id="ref-for-cookie-expiry-time">expiry-time</a> (<a data-link-type="dfn" href="#as-a-timestamp" id="ref-for-as-a-timestamp">as a timestamp</a>).</p>
      <li data-md>
@@ -2023,9 +2021,9 @@ run the following steps:</p>
      <li data-md>
       <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length②">length</a> is 0, then return failure.</p>
      <li data-md>
-      <p>Let <var>encodedName</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode①">UTF-8 encoding</a> <var>name</var>.</p>
+      <p>Let <var>encodedName</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode">UTF-8 encoding</a> <var>name</var>.</p>
      <li data-md>
-      <p>Let <var>encodedValue</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode②">UTF-8 encoding</a> <var>value</var>.</p>
+      <p>Let <var>encodedValue</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode①">UTF-8 encoding</a> <var>value</var>.</p>
      <li data-md>
       <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence②">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length">length</a> of <var>encodedName</var> plus the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence③">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length①">length</a> of <var>encodedValue</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-name-value-pair-size" id="ref-for-cookie-maximum-name-value-pair-size">maximum name/value pair size</a>, then return failure.</p>
      <li data-md>
@@ -2041,7 +2039,7 @@ run the following steps:</p>
         <p>If <var>host</var> does not equal <var>domain</var> and <var>host</var> does not end with U+002D (<code>.</code>) followed by <var>domain</var>,
 then return failure.</p>
        <li data-md>
-        <p>Let <var>encodedDomain</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode③">UTF-8 encoding</a> <var>domain</var>.</p>
+        <p>Let <var>encodedDomain</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode②">UTF-8 encoding</a> <var>domain</var>.</p>
        <li data-md>
         <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence④">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length②">length</a> of <var>encodedDomain</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-attribute-value-size" id="ref-for-cookie-maximum-attribute-value-size">maximum attribute value size</a>, then return failure.</p>
        <li data-md>
@@ -2057,7 +2055,7 @@ then return failure.</p>
        <li data-md>
         <p>If <var>path</var> does not end with U+002F (<code>/</code>), then append U+002F (<code>/</code>) to <var>path</var>.</p>
        <li data-md>
-        <p>Let <var>encodedPath</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode④">UTF-8 encoding</a> <var>path</var>.</p>
+        <p>Let <var>encodedPath</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode③">UTF-8 encoding</a> <var>path</var>.</p>
        <li data-md>
         <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑤">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length③">length</a> of <var>encodedPath</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-attribute-value-size" id="ref-for-cookie-maximum-attribute-value-size①">maximum attribute value size</a>, then return failure.</p>
        <li data-md>
@@ -2146,7 +2144,9 @@ by this algorithm.</p>
             <p>If <var>change</var> is not <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-contain" id="ref-for-list-contain①">in</a> the <a data-link-type="dfn" href="#observable-changes" id="ref-for-observable-changes②">observable changes</a> for <var>subscription</var>’s <a data-link-type="dfn" href="#cookie-change-subscription-url" id="ref-for-cookie-change-subscription-url①">url</a>,
 then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#iteration-continue" id="ref-for-iteration-continue②">continue</a>.</p>
            <li data-md>
-            <p>If <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name③">name</a> (<a data-link-type="dfn" href="#decode" id="ref-for-decode⑤">decoded</a>) equals <var>subscription</var>’s <a data-link-type="dfn" href="#cookie-change-subscription-name" id="ref-for-cookie-change-subscription-name①">name</a>,
+            <p>Let <var>cookieName</var> be the result of running <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-decode-without-bom" id="ref-for-utf-8-decode-without-bom⑤">UTF-8 decode without BOM</a> on <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-name" id="ref-for-cookie-name③">name</a>.</p>
+           <li data-md>
+            <p>If <var>cookieName</var> equals <var>subscription</var>’s <a data-link-type="dfn" href="#cookie-change-subscription-name" id="ref-for-cookie-change-subscription-name①">name</a>,
 then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#set-append" id="ref-for-set-append">append</a> <var>change</var> to <var>changes</var> and <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#iteration-break" id="ref-for-iteration-break">break</a>.</p>
           </ol>
         </ol>
@@ -2390,7 +2390,6 @@ authoring advice.</p>
    <li><a href="#create-a-cookielistitem">create a CookieListItem</a><span>, in § 7.1</span>
    <li><a href="#cookie-creation-time">creation-time</a><span>, in § 2.1</span>
    <li><a href="#date-serialize">date serialize</a><span>, in § 7</span>
-   <li><a href="#decode">decode</a><span>, in § 7</span>
    <li><a href="#delete-a-cookie">delete a cookie</a><span>, in § 7.3</span>
    <li>
     deleted
@@ -3378,8 +3377,8 @@ window.dfnpanelData['1372f92a'] = {"dfnID": "1372f92a", "url": "https://dom.spec
 window.dfnpanelData['a973e0fe'] = {"dfnID": "a973e0fe", "url": "https://dom.spec.whatwg.org/#concept-document", "dfnText": "document", "refSections": [{"refs": [{"id": "ref-for-concept-document"}, {"id": "ref-for-concept-document\u2460"}, {"id": "ref-for-concept-document\u2461"}], "title": "1.3. Querying Cookies"}, {"refs": [{"id": "ref-for-concept-document\u2462"}], "title": "1.4. Modifying Cookies"}, {"refs": [{"id": "ref-for-concept-document\u2463"}], "title": "1.5. Monitoring Cookies"}], "external": true};
 window.dfnpanelData['9d09d04c'] = {"dfnID": "9d09d04c", "url": "https://dom.spec.whatwg.org/#dom-event-type", "dfnText": "type", "refSections": [{"refs": [{"id": "ref-for-dom-event-type"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['873e2ff8'] = {"dfnID": "873e2ff8", "url": "https://tc39.github.io/ecma262/#sec-time-values-and-time-range", "dfnText": "time values", "refSections": [{"refs": [{"id": "ref-for-sec-time-values-and-time-range"}], "title": "7. Algorithms"}], "external": true};
-window.dfnpanelData['a3033be5'] = {"dfnID": "a3033be5", "url": "https://encoding.spec.whatwg.org/#utf-8-decode-without-bom", "dfnText": "utf-8 decode without bom", "refSections": [{"refs": [{"id": "ref-for-utf-8-decode-without-bom"}], "title": "7. Algorithms"}], "external": true};
-window.dfnpanelData['0303e8e5'] = {"dfnID": "0303e8e5", "url": "https://encoding.spec.whatwg.org/#utf-8-encode", "dfnText": "utf-8 encode", "refSections": [{"refs": [{"id": "ref-for-utf-8-encode"}], "title": "7. Algorithms"}, {"refs": [{"id": "ref-for-utf-8-encode\u2460"}, {"id": "ref-for-utf-8-encode\u2461"}, {"id": "ref-for-utf-8-encode\u2462"}, {"id": "ref-for-utf-8-encode\u2463"}], "title": "7.2. Set a Cookie"}], "external": true};
+window.dfnpanelData['a3033be5'] = {"dfnID": "a3033be5", "url": "https://encoding.spec.whatwg.org/#utf-8-decode-without-bom", "dfnText": "utf-8 decode without bom", "refSections": [{"refs": [{"id": "ref-for-utf-8-decode-without-bom"}, {"id": "ref-for-utf-8-decode-without-bom\u2460"}, {"id": "ref-for-utf-8-decode-without-bom\u2461"}, {"id": "ref-for-utf-8-decode-without-bom\u2462"}, {"id": "ref-for-utf-8-decode-without-bom\u2463"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-utf-8-decode-without-bom\u2464"}], "title": "7.4. Process Changes"}], "external": true};
+window.dfnpanelData['0303e8e5'] = {"dfnID": "0303e8e5", "url": "https://encoding.spec.whatwg.org/#utf-8-encode", "dfnText": "utf-8 encode", "refSections": [{"refs": [{"id": "ref-for-utf-8-encode"}, {"id": "ref-for-utf-8-encode\u2460"}, {"id": "ref-for-utf-8-encode\u2461"}, {"id": "ref-for-utf-8-encode\u2462"}], "title": "7.2. Set a Cookie"}], "external": true};
 window.dfnpanelData['a33db89a'] = {"dfnID": "a33db89a", "url": "https://fetch.spec.whatwg.org/#concept-fetch", "dfnText": "fetch", "refSections": [{"refs": [{"id": "ref-for-concept-fetch"}], "title": "1.3. Querying Cookies"}], "external": true};
 window.dfnpanelData['0e9f636b'] = {"dfnID": "0e9f636b", "url": "https://w3c.github.io/hr-time/#dom-domhighrestimestamp", "dfnText": "DOMHighResTimeStamp", "refSections": [{"refs": [{"id": "ref-for-dom-domhighrestimestamp"}, {"id": "ref-for-dom-domhighrestimestamp\u2460"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-dom-domhighrestimestamp\u2461"}], "title": "7. Algorithms"}], "external": true};
 window.dfnpanelData['f0951476'] = {"dfnID": "f0951476", "url": "https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler", "dfnText": "EventHandler", "refSections": [{"refs": [{"id": "ref-for-eventhandler"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-eventhandler\u2460"}], "title": "6.2. The ServiceWorkerGlobalScope interface"}], "external": true};
@@ -3403,7 +3402,7 @@ window.dfnpanelData['53275e46'] = {"dfnID": "53275e46", "url": "https://infra.sp
 window.dfnpanelData['a3b18719'] = {"dfnID": "a3b18719", "url": "https://infra.spec.whatwg.org/#set-append", "dfnText": "append (for set)", "refSections": [{"refs": [{"id": "ref-for-set-append"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['7b0d918d'] = {"dfnID": "7b0d918d", "url": "https://infra.spec.whatwg.org/#iteration-break", "dfnText": "break", "refSections": [{"refs": [{"id": "ref-for-iteration-break"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['f5354b9d'] = {"dfnID": "f5354b9d", "url": "https://infra.spec.whatwg.org/#byte", "dfnText": "byte", "refSections": [{"refs": [{"id": "ref-for-byte"}, {"id": "ref-for-byte\u2460"}], "title": "2.1. Cookie"}], "external": true};
-window.dfnpanelData['3de9e659'] = {"dfnID": "3de9e659", "url": "https://infra.spec.whatwg.org/#byte-sequence", "dfnText": "byte sequence", "refSections": [{"refs": [{"id": "ref-for-byte-sequence"}, {"id": "ref-for-byte-sequence\u2460"}], "title": "7. Algorithms"}, {"refs": [{"id": "ref-for-byte-sequence\u2461"}, {"id": "ref-for-byte-sequence\u2462"}, {"id": "ref-for-byte-sequence\u2463"}, {"id": "ref-for-byte-sequence\u2464"}], "title": "7.2. Set a Cookie"}], "external": true};
+window.dfnpanelData['3de9e659'] = {"dfnID": "3de9e659", "url": "https://infra.spec.whatwg.org/#byte-sequence", "dfnText": "byte sequence", "refSections": [{"refs": [{"id": "ref-for-byte-sequence"}], "title": "2.1. Cookie"}, {"refs": [{"id": "ref-for-byte-sequence\u2460"}], "title": "7. Algorithms"}, {"refs": [{"id": "ref-for-byte-sequence\u2461"}, {"id": "ref-for-byte-sequence\u2462"}, {"id": "ref-for-byte-sequence\u2463"}, {"id": "ref-for-byte-sequence\u2464"}], "title": "7.2. Set a Cookie"}], "external": true};
 window.dfnpanelData['0e2d3ffe'] = {"dfnID": "0e2d3ffe", "url": "https://infra.spec.whatwg.org/#c0-control", "dfnText": "c0 control", "refSections": [{"refs": [{"id": "ref-for-c0-control"}], "title": "7.2. Set a Cookie"}], "external": true};
 window.dfnpanelData['ae8def21'] = {"dfnID": "ae8def21", "url": "https://infra.spec.whatwg.org/#list-contain", "dfnText": "contain", "refSections": [{"refs": [{"id": "ref-for-list-contain"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-list-contain\u2460"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['f937b7b6'] = {"dfnID": "f937b7b6", "url": "https://infra.spec.whatwg.org/#iteration-continue", "dfnText": "continue", "refSections": [{"refs": [{"id": "ref-for-iteration-continue"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-iteration-continue\u2460"}, {"id": "ref-for-iteration-continue\u2461"}, {"id": "ref-for-iteration-continue\u2462"}], "title": "7.4. Process Changes"}], "external": true};
@@ -3446,7 +3445,7 @@ window.dfnpanelData['3b90bdcd'] = {"dfnID": "3b90bdcd", "url": "https://webidl.s
 window.dfnpanelData['9cce47fd'] = {"dfnID": "9cce47fd", "url": "https://webidl.spec.whatwg.org/#idl-sequence", "dfnText": "sequence", "refSections": [{"refs": [{"id": "ref-for-idl-sequence"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-idl-sequence\u2460"}, {"id": "ref-for-idl-sequence\u2461"}, {"id": "ref-for-idl-sequence\u2462"}], "title": "4. The CookieStoreManager Interface"}], "external": true};
 window.dfnpanelData['4013a022'] = {"dfnID": "4013a022", "url": "https://webidl.spec.whatwg.org/#this", "dfnText": "this", "refSections": [{"refs": [{"id": "ref-for-this"}, {"id": "ref-for-this\u2460"}, {"id": "ref-for-this\u2461"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-this\u2462"}, {"id": "ref-for-this\u2463"}, {"id": "ref-for-this\u2464"}], "title": "3.2. The getAll() method"}, {"refs": [{"id": "ref-for-this\u2465"}, {"id": "ref-for-this\u2466"}], "title": "3.3. The set() method"}, {"refs": [{"id": "ref-for-this\u2467"}, {"id": "ref-for-this\u2468"}], "title": "3.4. The delete() method"}, {"refs": [{"id": "ref-for-this\u2460\u24ea"}, {"id": "ref-for-this\u2460\u2460"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-this\u2460\u2461"}], "title": "4.2. The getSubscriptions() method"}, {"refs": [{"id": "ref-for-this\u2460\u2462"}, {"id": "ref-for-this\u2460\u2463"}], "title": "4.3. The unsubscribe() method"}, {"refs": [{"id": "ref-for-this\u2460\u2464"}], "title": "4.4. The ServiceWorkerRegistration interface"}, {"refs": [{"id": "ref-for-this\u2460\u2465"}], "title": "6.1. The Window interface"}, {"refs": [{"id": "ref-for-this\u2460\u2466"}], "title": "6.2. The ServiceWorkerGlobalScope interface"}], "external": true};
 window.dfnpanelData['5f90bbfb'] = {"dfnID": "5f90bbfb", "url": "https://webidl.spec.whatwg.org/#idl-undefined", "dfnText": "undefined", "refSections": [{"refs": [{"id": "ref-for-idl-undefined"}, {"id": "ref-for-idl-undefined\u2460"}, {"id": "ref-for-idl-undefined\u2461"}, {"id": "ref-for-idl-undefined\u2462"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-idl-undefined\u2463"}, {"id": "ref-for-idl-undefined\u2464"}], "title": "4. The CookieStoreManager Interface"}], "external": true};
-window.dfnpanelData['cookie'] = {"dfnID": "cookie", "url": "#cookie", "dfnText": "cookie", "refSections": [{"refs": [{"id": "ref-for-cookie"}], "title": "2.1. Cookie"}, {"refs": [{"id": "ref-for-cookie\u2460"}, {"id": "ref-for-cookie\u2461"}, {"id": "ref-for-cookie\u2462"}], "title": "2.2. Cookie Store"}, {"refs": [{"id": "ref-for-cookie\u2463"}], "title": "7. Algorithms"}, {"refs": [{"id": "ref-for-cookie\u2464"}, {"id": "ref-for-cookie\u2465"}, {"id": "ref-for-cookie\u2466"}, {"id": "ref-for-cookie\u2467"}, {"id": "ref-for-cookie\u2468"}, {"id": "ref-for-cookie\u2460\u24ea"}, {"id": "ref-for-cookie\u2460\u2460"}], "title": "7.4. Process Changes"}], "external": false};
+window.dfnpanelData['cookie'] = {"dfnID": "cookie", "url": "#cookie", "dfnText": "cookie", "refSections": [{"refs": [{"id": "ref-for-cookie"}, {"id": "ref-for-cookie\u2460"}], "title": "2.1. Cookie"}, {"refs": [{"id": "ref-for-cookie\u2461"}, {"id": "ref-for-cookie\u2462"}, {"id": "ref-for-cookie\u2463"}], "title": "2.2. Cookie Store"}, {"refs": [{"id": "ref-for-cookie\u2464"}, {"id": "ref-for-cookie\u2465"}, {"id": "ref-for-cookie\u2466"}, {"id": "ref-for-cookie\u2467"}, {"id": "ref-for-cookie\u2468"}, {"id": "ref-for-cookie\u2460\u24ea"}, {"id": "ref-for-cookie\u2460\u2460"}], "title": "7.4. Process Changes"}], "external": false};
 window.dfnpanelData['cookie-name'] = {"dfnID": "cookie-name", "url": "#cookie-name", "dfnText": "name", "refSections": [{"refs": [{"id": "ref-for-cookie-name"}], "title": "1.3. Querying Cookies"}, {"refs": [{"id": "ref-for-cookie-name\u2460"}, {"id": "ref-for-cookie-name\u2461"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-cookie-name\u2462"}, {"id": "ref-for-cookie-name\u2463"}], "title": "7.4. Process Changes"}], "external": false};
 window.dfnpanelData['cookie-value'] = {"dfnID": "cookie-value", "url": "#cookie-value", "dfnText": "value", "refSections": [{"refs": [{"id": "ref-for-cookie-value"}], "title": "1.3. Querying Cookies"}, {"refs": [{"id": "ref-for-cookie-value\u2460"}], "title": "7.1. Query Cookies"}], "external": false};
 window.dfnpanelData['cookie-expiry-time'] = {"dfnID": "cookie-expiry-time", "url": "#cookie-expiry-time", "dfnText": "expiry-time", "refSections": [{"refs": [{"id": "ref-for-cookie-expiry-time"}], "title": "7.1. Query Cookies"}], "external": false};
@@ -3515,7 +3514,6 @@ window.dfnpanelData['window-associated-cookiestore'] = {"dfnID": "window-associa
 window.dfnpanelData['dom-window-cookiestore'] = {"dfnID": "dom-window-cookiestore", "url": "#dom-window-cookiestore", "dfnText": "cookieStore", "refSections": [{"refs": [{"id": "ref-for-dom-window-cookiestore"}], "title": "1.3. Querying Cookies"}, {"refs": [{"id": "ref-for-dom-window-cookiestore\u2460"}], "title": "1.4. Modifying Cookies"}, {"refs": [{"id": "ref-for-dom-window-cookiestore\u2461"}], "title": "6.1. The Window interface"}], "external": false};
 window.dfnpanelData['serviceworkerglobalscope-associated-cookiestore'] = {"dfnID": "serviceworkerglobalscope-associated-cookiestore", "url": "#serviceworkerglobalscope-associated-cookiestore", "dfnText": "associated CookieStore", "refSections": [{"refs": [{"id": "ref-for-serviceworkerglobalscope-associated-cookiestore"}], "title": "6.2. The ServiceWorkerGlobalScope interface"}], "external": false};
 window.dfnpanelData['dom-serviceworkerglobalscope-cookiestore'] = {"dfnID": "dom-serviceworkerglobalscope-cookiestore", "url": "#dom-serviceworkerglobalscope-cookiestore", "dfnText": "cookieStore", "refSections": [{"refs": [{"id": "ref-for-dom-serviceworkerglobalscope-cookiestore"}], "title": "6.2. The ServiceWorkerGlobalScope interface"}], "external": false};
-window.dfnpanelData['decode'] = {"dfnID": "decode", "url": "#decode", "dfnText": "decode", "refSections": [{"refs": [{"id": "ref-for-decode"}, {"id": "ref-for-decode\u2460"}, {"id": "ref-for-decode\u2461"}, {"id": "ref-for-decode\u2462"}, {"id": "ref-for-decode\u2463"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-decode\u2464"}], "title": "7.4. Process Changes"}], "external": false};
 window.dfnpanelData['as-a-timestamp'] = {"dfnID": "as-a-timestamp", "url": "#as-a-timestamp", "dfnText": "as a timestamp", "refSections": [{"refs": [{"id": "ref-for-as-a-timestamp"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-as-a-timestamp\u2460"}], "title": "7.3. Delete a Cookie"}], "external": false};
 window.dfnpanelData['date-serialize'] = {"dfnID": "date-serialize", "url": "#date-serialize", "dfnText": "date serialize", "refSections": [{"refs": [{"id": "ref-for-date-serialize"}], "title": "7.2. Set a Cookie"}], "external": false};
 window.dfnpanelData['query-cookies'] = {"dfnID": "query-cookies", "url": "#query-cookies", "dfnText": "query cookies", "refSections": [{"refs": [{"id": "ref-for-query-cookies"}, {"id": "ref-for-query-cookies\u2460"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-query-cookies\u2461"}, {"id": "ref-for-query-cookies\u2462"}], "title": "3.2. The getAll() method"}], "external": false};
