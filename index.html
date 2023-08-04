@@ -4,10 +4,10 @@
   <title>Cookie Store API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <link href="https://www.w3.org/StyleSheets/TR/2021/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version b06c00b8e, updated Tue Jul 11 13:41:16 2023 -0700" name="generator">
+  <meta content="Bikeshed version d29f71adb, updated Wed Jul 19 11:08:56 2023 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="c9a8c1d37ea5a5bf79bca3497c75d267cdc9dac3" name="document-revision">
+  <meta content="880b5ea3b242f1e05e1ad652f66ac03a9101ee1a" name="document-revision">
 <style>
 .domintro::before {
     content: 'For web developers (non-normative)';
@@ -912,7 +912,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-07-11">11 July 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2023-08-04">4 August 2023</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1385,12 +1385,14 @@ each member is a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString⑨"><c- b>USVString</c-></a>? <dfn class="dfn-paneled idl-code" data-default="null" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString? " id="dom-cookieinit-domain"><code><c- g>domain</c-></code></dfn> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⓪"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;/&quot;" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookieinit-path"><code><c- g>path</c-></code></dfn> = "/";
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite" id="ref-for-enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;strict&quot;" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="CookieSameSite " id="dom-cookieinit-samesite"><code><c- g>sameSite</c-></code></dfn> = "strict";
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean"><c- b>boolean</c-></a> <dfn class="dfn-paneled idl-code" data-default="false" data-dfn-for="CookieInit" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookieinit-partitioned"><code><c- g>partitioned</c-></code></dfn> = <c- b>false</c->;
 };
 
 <c- b>dictionary</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="dictionary" data-export id="dictdef-cookiestoredeleteoptions"><code><c- g>CookieStoreDeleteOptions</c-></code></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①①"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="CookieStoreDeleteOptions" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookiestoredeleteoptions-name"><code><c- g>name</c-></code></dfn>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①②"><c- b>USVString</c-></a>? <dfn class="dfn-paneled idl-code" data-default="null" data-dfn-for="CookieStoreDeleteOptions" data-dfn-type="dict-member" data-export data-type="USVString? " id="dom-cookiestoredeleteoptions-domain"><code><c- g>domain</c-></code></dfn> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①③"><c- b>USVString</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;/&quot;" data-dfn-for="CookieStoreDeleteOptions" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookiestoredeleteoptions-path"><code><c- g>path</c-></code></dfn> = "/";
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean①"><c- b>boolean</c-></a> <dfn class="dfn-paneled idl-code" data-default="false" data-dfn-for="CookieStoreDeleteOptions" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookiestoredeleteoptions-partitioned"><code><c- g>partitioned</c-></code></dfn> = <c- b>false</c->;
 };
 
 <c- b>dictionary</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="dictionary" data-export id="dictdef-cookielistitem"><code><c- g>CookieListItem</c-></code></dfn> {
@@ -1399,8 +1401,9 @@ each member is a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⑥"><c- b>USVString</c-></a>? <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="USVString? " id="dom-cookielistitem-domain"><code><c- g>domain</c-></code><a class="self-link" href="#dom-cookielistitem-domain"></a></dfn>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString" id="ref-for-idl-USVString①⑦"><c- b>USVString</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="USVString " id="dom-cookielistitem-path"><code><c- g>path</c-></code><a class="self-link" href="#dom-cookielistitem-path"></a></dfn>;
   <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp" id="ref-for-dom-domhighrestimestamp①"><c- n>DOMHighResTimeStamp</c-></a>? <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="DOMHighResTimeStamp? " id="dom-cookielistitem-expires"><code><c- g>expires</c-></code><a class="self-link" href="#dom-cookielistitem-expires"></a></dfn>;
-  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean"><c- b>boolean</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookielistitem-secure"><code><c- g>secure</c-></code><a class="self-link" href="#dom-cookielistitem-secure"></a></dfn>;
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean②"><c- b>boolean</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookielistitem-secure"><code><c- g>secure</c-></code><a class="self-link" href="#dom-cookielistitem-secure"></a></dfn>;
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite" id="ref-for-enumdef-cookiesamesite①"><c- n>CookieSameSite</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="CookieSameSite " id="dom-cookielistitem-samesite"><code><c- g>sameSite</c-></code><a class="self-link" href="#dom-cookielistitem-samesite"></a></dfn>;
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean" id="ref-for-idl-boolean③"><c- b>boolean</c-></a> <dfn class="idl-code" data-dfn-for="CookieListItem" data-dfn-type="dict-member" data-export data-type="boolean " id="dom-cookielistitem-partitioned"><code><c- g>partitioned</c-></code><a class="self-link" href="#dom-cookielistitem-partitioned"></a></dfn>;
 };
 
 <c- b>typedef</c-> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#idl-sequence" id="ref-for-idl-sequence"><c- b>sequence</c-></a>&lt;<a data-link-type="idl-name" href="#dictdef-cookielistitem" id="ref-for-dictdef-cookielistitem②"><c- n>CookieListItem</c-></a>> <dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export id="typedefdef-cookielist"><code><c- g>CookieList</c-></code></dfn>;
@@ -1634,7 +1637,7 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
       <p>Run the following steps <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel⑤">in parallel</a>:</p>
       <ol>
        <li data-md>
-        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie①">set a cookie</a> with <var>url</var>, <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-name" id="ref-for-dom-cookieinit-name">name</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-value" id="ref-for-dom-cookieinit-value">value</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-expires" id="ref-for-dom-cookieinit-expires">expires</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-domain" id="ref-for-dom-cookieinit-domain">domain</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-path" id="ref-for-dom-cookieinit-path">path</a></code>"], and <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-samesite" id="ref-for-dom-cookieinit-samesite">sameSite</a></code>"].</p>
+        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie①">set a cookie</a> with <var>url</var>, <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-name" id="ref-for-dom-cookieinit-name">name</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-value" id="ref-for-dom-cookieinit-value">value</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-expires" id="ref-for-dom-cookieinit-expires">expires</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-domain" id="ref-for-dom-cookieinit-domain">domain</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-path" id="ref-for-dom-cookieinit-path">path</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-samesite" id="ref-for-dom-cookieinit-samesite">sameSite</a></code>"], and <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookieinit-partitioned" id="ref-for-dom-cookieinit-partitioned">partitioned</a></code>"].</p>
        <li data-md>
         <p>If <var>r</var> is failure, then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="ref-for-reject⑤">reject</a> <var>p</var> with a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror①⓪">TypeError</a></code> and abort these steps.</p>
        <li data-md>
@@ -1701,7 +1704,7 @@ true, and
       <p>Run the following steps <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel⑦">in parallel</a>:</p>
       <ol>
        <li data-md>
-        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#delete-a-cookie" id="ref-for-delete-a-cookie①">delete a cookie</a> with <var>url</var>, <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-name" id="ref-for-dom-cookiestoredeleteoptions-name">name</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-domain" id="ref-for-dom-cookiestoredeleteoptions-domain">domain</a></code>"], and <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-path" id="ref-for-dom-cookiestoredeleteoptions-path">path</a></code>"].</p>
+        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#delete-a-cookie" id="ref-for-delete-a-cookie①">delete a cookie</a> with <var>url</var>, <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-name" id="ref-for-dom-cookiestoredeleteoptions-name">name</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-domain" id="ref-for-dom-cookiestoredeleteoptions-domain">domain</a></code>"], <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-path" id="ref-for-dom-cookiestoredeleteoptions-path">path</a></code>"], and <var>options</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookiestoredeleteoptions-partitioned" id="ref-for-dom-cookiestoredeleteoptions-partitioned">partitioned</a></code>"].</p>
        <li data-md>
         <p>If <var>r</var> is failure, then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="ref-for-reject⑦">reject</a> <var>p</var> with a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror①②">TypeError</a></code> and abort these steps.</p>
        <li data-md>
@@ -1996,6 +1999,8 @@ The <var>cookie-string</var> itself is ignored, but the intermediate <var>cookie
         <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-lax" id="ref-for-dom-cookiesamesite-lax">lax</a></code>".</p>
       </dl>
      <li data-md>
+      <p>Let <var>partitioned</var> be a boolean indicating that the user agent supports <a href="https://github.com/privacycg/CHIPS">cookie partitioning</a> and that that <var>cookie</var> has a partition key.</p>
+     <li data-md>
       <p>Return «[
 "name" → <var>name</var>,
 "value" → <var>value</var>,
@@ -2003,15 +2008,15 @@ The <var>cookie-string</var> itself is ignored, but the intermediate <var>cookie
 "path" → <var>path</var>,
 "expires" → <var>expires</var>,
 "secure" → <var>secure</var>,
-"sameSite" → <var>sameSite</var> ]»</p>
+"sameSite" → <var>sameSite</var>,
+"partitioned" → <var>partitioned</var> ]»</p>
     </ol>
     <p class="note" role="note"><span class="marker">Note:</span> The <var>cookie</var>’s <a data-link-type="dfn" href="#cookie-creation-time" id="ref-for-cookie-creation-time">creation-time</a>, <a data-link-type="dfn" href="#cookie-last-access-time" id="ref-for-cookie-last-access-time">last-access-time</a>, <a data-link-type="dfn" href="#cookie-persistent-flag" id="ref-for-cookie-persistent-flag">persistent-flag</a>, <a data-link-type="dfn" href="#cookie-host-only-flag" id="ref-for-cookie-host-only-flag">host-only-flag</a>, and <a data-link-type="dfn" href="#cookie-http-only-flag" id="ref-for-cookie-http-only-flag①">http-only-flag</a> attributes are not exposed to script.</p>
    </div>
    <h3 class="heading settled" data-level="7.2" id="set-cookie-algorithm"><span class="secno">7.2. </span><span class="content">Set a Cookie</span><a class="self-link" href="#set-cookie-algorithm"></a></h3>
    <div class="algorithm" data-algorithm="set a cookie">
     <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="set-a-cookie">set a cookie</dfn> with <var>url</var>, <var>name</var>, <var>value</var>,
-optional <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var>,
-run the following steps:</p>
+optional <var>expires</var>, <var>domain</var>, <var>path</var>, <var>sameSite</var>, and <var>partitioned</var> run the following steps:</p>
     <ol>
      <li data-md>
       <p>If <var>name</var> or <var>value</var> contain U+003B (<code>;</code>), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 (the horizontal tab character), or U+007F, then return failure.</p>
@@ -2077,6 +2082,8 @@ then return failure.</p>
         <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑨">Append</a> `<code>SameSite</code>`/`<code>Lax</code>` to <var>attributes</var>.</p>
       </dl>
      <li data-md>
+      <p>If <var>partitioned</var> is true, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append①⓪">Append</a> `<code>Partitioned</code>`/`` to <var>attributes</var>.</p>
+     <li data-md>
       <p>Perform the steps defined in <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-rfc6265bis.html#section-5.6"><cite>Cookies: HTTP State Management Mechanism</cite> § 5.6 Storage Model</a> for when the user agent "receives a cookie" with <var>url</var> as <var>request-uri</var>, <var>encodedName</var> as <var>cookie-name</var>, <var>encodedValue</var> as <var>cookie-value</var>, and <var>attributes</var> as <var>cookie-attribute-list</var>.</p>
       <p>For the purposes of the steps, the newly-created cookie was received from a "non-HTTP" API.</p>
      <li data-md>
@@ -2086,8 +2093,7 @@ then return failure.</p>
    </div>
    <h3 class="heading settled" data-level="7.3" id="delete-cookie-algorithm"><span class="secno">7.3. </span><span class="content">Delete a Cookie</span><a class="self-link" href="#delete-cookie-algorithm"></a></h3>
    <div class="algorithm" data-algorithm="delete a cookie">
-    <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="delete-a-cookie">delete a cookie</dfn> with <var>url</var>, <var>name</var>, <var>domain</var> and <var>path</var>,
-run the following steps:</p>
+    <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="delete-a-cookie">delete a cookie</dfn> with <var>url</var>, <var>name</var>, <var>domain</var>, <var>path</var>, and <var>partitioned</var> run the following steps:</p>
     <ol>
      <li data-md>
       <p>If <var>path</var> is not null, then run these steps:</p>
@@ -2108,7 +2114,7 @@ as long as it is in the past.</p>
       <p class="note" role="note"><span class="marker">Note:</span> The values for <var>value</var>, and <var>sameSite</var> will not be persisted
 by this algorithm.</p>
      <li data-md>
-      <p>Return the results of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie②">set a cookie</a> with <var>url</var>, <var>name</var>, <var>value</var>, <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var>.</p>
+      <p>Return the results of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie②">set a cookie</a> with <var>url</var>, <var>name</var>, <var>value</var>, <var>expires</var>, <var>domain</var>, <var>path</var>, <var>sameSite</var>, and <var>partitioned</var>.</p>
     </ol>
    </div>
    <h3 class="heading settled" data-level="7.4" id="process-changes"><span class="secno">7.4. </span><span class="content">Process Changes</span><a class="self-link" href="#process-changes"></a></h3>
@@ -2217,14 +2223,14 @@ with <var>url</var> as <var>request-uri</var>, for a "non-HTTP" API.</p>
        <li data-md>
         <p>Let <var>item</var> be the result of running <a data-link-type="dfn" href="#create-a-cookielistitem" id="ref-for-create-a-cookielistitem①">create a CookieListItem</a> from <var>change</var>’s cookie.</p>
        <li data-md>
-        <p>If <var>change</var>’s type is <em>changed</em>, then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append①⓪">append</a> <var>item</var> to <var>changedList</var>.</p>
+        <p>If <var>change</var>’s type is <em>changed</em>, then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append①①">append</a> <var>item</var> to <var>changedList</var>.</p>
        <li data-md>
         <p>Otherwise, run these steps:</p>
         <ol>
          <li data-md>
           <p>Set <var>item</var>["<code class="idl"><a data-link-type="idl" href="#dom-cookielistitem-value" id="ref-for-dom-cookielistitem-value">value</a></code>"] to undefined.</p>
          <li data-md>
-          <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append①①">Append</a> <var>item</var> to <var>deletedList</var>.</p>
+          <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append①②">Append</a> <var>item</var> to <var>deletedList</var>.</p>
         </ol>
       </ol>
      <li data-md>
@@ -2448,6 +2454,13 @@ authoring advice.</p>
    <li><a href="#observable-changes">observable changes</a><span>, in § 7.4</span>
    <li><a href="#dom-cookiestore-onchange">onchange</a><span>, in § 3</span>
    <li><a href="#dom-serviceworkerglobalscope-oncookiechange">oncookiechange</a><span>, in § 6.2</span>
+   <li>
+    partitioned
+    <ul>
+     <li><a href="#dom-cookieinit-partitioned">dict-member for CookieInit</a><span>, in § 3</span>
+     <li><a href="#dom-cookielistitem-partitioned">dict-member for CookieListItem</a><span>, in § 3</span>
+     <li><a href="#dom-cookiestoredeleteoptions-partitioned">dict-member for CookieStoreDeleteOptions</a><span>, in § 3</span>
+    </ul>
    <li>
     path
     <ul>
@@ -2681,12 +2694,14 @@ authoring advice.</p>
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a>? <a data-default="null" data-type="USVString? " href="#dom-cookieinit-domain"><code><c- g>domain</c-></code></a> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-default="&quot;/&quot;" data-type="USVString " href="#dom-cookieinit-path"><code><c- g>path</c-></code></a> = "/";
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <a data-default="&quot;strict&quot;" data-type="CookieSameSite " href="#dom-cookieinit-samesite"><code><c- g>sameSite</c-></code></a> = "strict";
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean"><c- b>boolean</c-></a> <a data-default="false" data-type="boolean " href="#dom-cookieinit-partitioned"><code><c- g>partitioned</c-></code></a> = <c- b>false</c->;
 };
 
 <c- b>dictionary</c-> <a href="#dictdef-cookiestoredeleteoptions"><code><c- g>CookieStoreDeleteOptions</c-></code></a> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-type="USVString " href="#dom-cookiestoredeleteoptions-name"><code><c- g>name</c-></code></a>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a>? <a data-default="null" data-type="USVString? " href="#dom-cookiestoredeleteoptions-domain"><code><c- g>domain</c-></code></a> = <c- b>null</c->;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-USVString"><c- b>USVString</c-></a> <a data-default="&quot;/&quot;" data-type="USVString " href="#dom-cookiestoredeleteoptions-path"><code><c- g>path</c-></code></a> = "/";
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean"><c- b>boolean</c-></a> <a data-default="false" data-type="boolean " href="#dom-cookiestoredeleteoptions-partitioned"><code><c- g>partitioned</c-></code></a> = <c- b>false</c->;
 };
 
 <c- b>dictionary</c-> <a href="#dictdef-cookielistitem"><code><c- g>CookieListItem</c-></code></a> {
@@ -2697,6 +2712,7 @@ authoring advice.</p>
   <a data-link-type="idl-name" href="https://w3c.github.io/hr-time/#dom-domhighrestimestamp"><c- n>DOMHighResTimeStamp</c-></a>? <a data-type="DOMHighResTimeStamp? " href="#dom-cookielistitem-expires"><code><c- g>expires</c-></code></a>;
   <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean"><c- b>boolean</c-></a> <a data-type="boolean " href="#dom-cookielistitem-secure"><code><c- g>secure</c-></code></a>;
   <a data-link-type="idl-name" href="#enumdef-cookiesamesite"><c- n>CookieSameSite</c-></a> <a data-type="CookieSameSite " href="#dom-cookielistitem-samesite"><code><c- g>sameSite</c-></code></a>;
+  <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean"><c- b>boolean</c-></a> <a data-type="boolean " href="#dom-cookielistitem-partitioned"><code><c- g>partitioned</c-></code></a>;
 };
 
 <c- b>typedef</c-> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#idl-sequence"><c- b>sequence</c-></a>&lt;<a data-link-type="idl-name" href="#dictdef-cookielistitem"><c- n>CookieListItem</c-></a>> <a href="#typedefdef-cookielist"><code><c- g>CookieList</c-></code></a>;
@@ -3398,7 +3414,7 @@ window.dfnpanelData['9c4c1e66'] = {"dfnID": "9c4c1e66", "url": "https://html.spe
 window.dfnpanelData['66fd1e11'] = {"dfnID": "66fd1e11", "url": "https://html.spec.whatwg.org/multipage/nav-history-apis.html#dom-history-replacestate", "dfnText": "replaceState(data, unused, url)", "refSections": [{"refs": [{"id": "ref-for-dom-history-replacestate"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-dom-history-replacestate\u2460"}], "title": "3.2. The getAll() method"}], "external": true};
 window.dfnpanelData['7393da89'] = {"dfnID": "7393da89", "url": "https://html.spec.whatwg.org/multipage/browsers.html#same-origin", "dfnText": "same origin", "refSections": [{"refs": [{"id": "ref-for-same-origin"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-same-origin\u2460"}], "title": "3.2. The getAll() method"}], "external": true};
 window.dfnpanelData['65181da8'] = {"dfnID": "65181da8", "url": "https://html.spec.whatwg.org/multipage/webappapis.html#secure-context", "dfnText": "secure context", "refSections": [{"refs": [{"id": "ref-for-secure-context"}], "title": "8.2. Restrict?"}, {"refs": [{"id": "ref-for-secure-context\u2460"}], "title": "8.4. Surprises"}], "external": true};
-window.dfnpanelData['53275e46'] = {"dfnID": "53275e46", "url": "https://infra.spec.whatwg.org/#list-append", "dfnText": "append (for list)", "refSections": [{"refs": [{"id": "ref-for-list-append"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-list-append\u2460"}], "title": "4.2. The getSubscriptions() method"}, {"refs": [{"id": "ref-for-list-append\u2461"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-list-append\u2462"}, {"id": "ref-for-list-append\u2463"}, {"id": "ref-for-list-append\u2464"}, {"id": "ref-for-list-append\u2465"}, {"id": "ref-for-list-append\u2466"}, {"id": "ref-for-list-append\u2467"}, {"id": "ref-for-list-append\u2468"}], "title": "7.2. Set a Cookie"}, {"refs": [{"id": "ref-for-list-append\u2460\u24ea"}, {"id": "ref-for-list-append\u2460\u2460"}], "title": "7.4. Process Changes"}], "external": true};
+window.dfnpanelData['53275e46'] = {"dfnID": "53275e46", "url": "https://infra.spec.whatwg.org/#list-append", "dfnText": "append (for list)", "refSections": [{"refs": [{"id": "ref-for-list-append"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-list-append\u2460"}], "title": "4.2. The getSubscriptions() method"}, {"refs": [{"id": "ref-for-list-append\u2461"}], "title": "7.1. Query Cookies"}, {"refs": [{"id": "ref-for-list-append\u2462"}, {"id": "ref-for-list-append\u2463"}, {"id": "ref-for-list-append\u2464"}, {"id": "ref-for-list-append\u2465"}, {"id": "ref-for-list-append\u2466"}, {"id": "ref-for-list-append\u2467"}, {"id": "ref-for-list-append\u2468"}, {"id": "ref-for-list-append\u2460\u24ea"}], "title": "7.2. Set a Cookie"}, {"refs": [{"id": "ref-for-list-append\u2460\u2460"}, {"id": "ref-for-list-append\u2460\u2461"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['a3b18719'] = {"dfnID": "a3b18719", "url": "https://infra.spec.whatwg.org/#set-append", "dfnText": "append (for set)", "refSections": [{"refs": [{"id": "ref-for-set-append"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['7b0d918d'] = {"dfnID": "7b0d918d", "url": "https://infra.spec.whatwg.org/#iteration-break", "dfnText": "break", "refSections": [{"refs": [{"id": "ref-for-iteration-break"}], "title": "7.4. Process Changes"}], "external": true};
 window.dfnpanelData['f5354b9d'] = {"dfnID": "f5354b9d", "url": "https://infra.spec.whatwg.org/#byte", "dfnText": "byte", "refSections": [{"refs": [{"id": "ref-for-byte"}, {"id": "ref-for-byte\u2460"}], "title": "2.1. Cookie"}], "external": true};
@@ -3439,7 +3455,7 @@ window.dfnpanelData['82ca3efc'] = {"dfnID": "82ca3efc", "url": "https://webidl.s
 window.dfnpanelData['b0d7f3c3'] = {"dfnID": "b0d7f3c3", "url": "https://webidl.spec.whatwg.org/#idl-USVString", "dfnText": "USVString", "refSections": [{"refs": [{"id": "ref-for-idl-USVString"}, {"id": "ref-for-idl-USVString\u2460"}, {"id": "ref-for-idl-USVString\u2461"}, {"id": "ref-for-idl-USVString\u2462"}, {"id": "ref-for-idl-USVString\u2463"}, {"id": "ref-for-idl-USVString\u2464"}, {"id": "ref-for-idl-USVString\u2465"}, {"id": "ref-for-idl-USVString\u2466"}, {"id": "ref-for-idl-USVString\u2467"}, {"id": "ref-for-idl-USVString\u2468"}, {"id": "ref-for-idl-USVString\u2460\u24ea"}, {"id": "ref-for-idl-USVString\u2460\u2460"}, {"id": "ref-for-idl-USVString\u2460\u2461"}, {"id": "ref-for-idl-USVString\u2460\u2462"}, {"id": "ref-for-idl-USVString\u2460\u2463"}, {"id": "ref-for-idl-USVString\u2460\u2464"}, {"id": "ref-for-idl-USVString\u2460\u2465"}, {"id": "ref-for-idl-USVString\u2460\u2466"}], "title": "3. The CookieStore Interface"}], "external": true};
 window.dfnpanelData['dacde8b5'] = {"dfnID": "dacde8b5", "url": "https://webidl.spec.whatwg.org/#a-new-promise", "dfnText": "a new promise", "refSections": [{"refs": [{"id": "ref-for-a-new-promise"}, {"id": "ref-for-a-new-promise\u2460"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2461"}, {"id": "ref-for-a-new-promise\u2462"}], "title": "3.2. The getAll() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2463"}, {"id": "ref-for-a-new-promise\u2464"}], "title": "3.3. The set() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2465"}, {"id": "ref-for-a-new-promise\u2466"}], "title": "3.4. The delete() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2467"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2468"}], "title": "4.2. The getSubscriptions() method"}, {"refs": [{"id": "ref-for-a-new-promise\u2460\u24ea"}], "title": "4.3. The unsubscribe() method"}], "external": true};
 window.dfnpanelData['d0b4a948'] = {"dfnID": "d0b4a948", "url": "https://webidl.spec.whatwg.org/#a-promise-rejected-with", "dfnText": "a promise rejected with", "refSections": [{"refs": [{"id": "ref-for-a-promise-rejected-with"}, {"id": "ref-for-a-promise-rejected-with\u2460"}, {"id": "ref-for-a-promise-rejected-with\u2461"}, {"id": "ref-for-a-promise-rejected-with\u2462"}, {"id": "ref-for-a-promise-rejected-with\u2463"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-a-promise-rejected-with\u2464"}, {"id": "ref-for-a-promise-rejected-with\u2465"}, {"id": "ref-for-a-promise-rejected-with\u2466"}, {"id": "ref-for-a-promise-rejected-with\u2467"}], "title": "3.2. The getAll() method"}, {"refs": [{"id": "ref-for-a-promise-rejected-with\u2468"}, {"id": "ref-for-a-promise-rejected-with\u2460\u24ea"}], "title": "3.3. The set() method"}, {"refs": [{"id": "ref-for-a-promise-rejected-with\u2460\u2460"}, {"id": "ref-for-a-promise-rejected-with\u2460\u2461"}], "title": "3.4. The delete() method"}], "external": true};
-window.dfnpanelData['5372cca8'] = {"dfnID": "5372cca8", "url": "https://webidl.spec.whatwg.org/#idl-boolean", "dfnText": "boolean", "refSections": [{"refs": [{"id": "ref-for-idl-boolean"}], "title": "3. The CookieStore Interface"}], "external": true};
+window.dfnpanelData['5372cca8'] = {"dfnID": "5372cca8", "url": "https://webidl.spec.whatwg.org/#idl-boolean", "dfnText": "boolean", "refSections": [{"refs": [{"id": "ref-for-idl-boolean"}, {"id": "ref-for-idl-boolean\u2460"}, {"id": "ref-for-idl-boolean\u2461"}, {"id": "ref-for-idl-boolean\u2462"}], "title": "3. The CookieStore Interface"}], "external": true};
 window.dfnpanelData['b262501e'] = {"dfnID": "b262501e", "url": "https://webidl.spec.whatwg.org/#reject", "dfnText": "reject", "refSections": [{"refs": [{"id": "ref-for-reject"}, {"id": "ref-for-reject\u2460"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-reject\u2461"}, {"id": "ref-for-reject\u2462"}], "title": "3.2. The getAll() method"}, {"refs": [{"id": "ref-for-reject\u2463"}, {"id": "ref-for-reject\u2464"}], "title": "3.3. The set() method"}, {"refs": [{"id": "ref-for-reject\u2465"}, {"id": "ref-for-reject\u2466"}], "title": "3.4. The delete() method"}, {"refs": [{"id": "ref-for-reject\u2467"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-reject\u2468"}], "title": "4.3. The unsubscribe() method"}], "external": true};
 window.dfnpanelData['3b90bdcd'] = {"dfnID": "3b90bdcd", "url": "https://webidl.spec.whatwg.org/#resolve", "dfnText": "resolve", "refSections": [{"refs": [{"id": "ref-for-resolve"}, {"id": "ref-for-resolve\u2460"}, {"id": "ref-for-resolve\u2461"}, {"id": "ref-for-resolve\u2462"}], "title": "3.1. The get() method"}, {"refs": [{"id": "ref-for-resolve\u2463"}, {"id": "ref-for-resolve\u2464"}], "title": "3.2. The getAll() method"}, {"refs": [{"id": "ref-for-resolve\u2465"}, {"id": "ref-for-resolve\u2466"}], "title": "3.3. The set() method"}, {"refs": [{"id": "ref-for-resolve\u2467"}, {"id": "ref-for-resolve\u2468"}], "title": "3.4. The delete() method"}, {"refs": [{"id": "ref-for-resolve\u2460\u24ea"}], "title": "4.1. The subscribe() method"}, {"refs": [{"id": "ref-for-resolve\u2460\u2460"}], "title": "4.2. The getSubscriptions() method"}, {"refs": [{"id": "ref-for-resolve\u2460\u2461"}], "title": "4.3. The unsubscribe() method"}], "external": true};
 window.dfnpanelData['9cce47fd'] = {"dfnID": "9cce47fd", "url": "https://webidl.spec.whatwg.org/#idl-sequence", "dfnText": "sequence", "refSections": [{"refs": [{"id": "ref-for-idl-sequence"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-idl-sequence\u2460"}, {"id": "ref-for-idl-sequence\u2461"}, {"id": "ref-for-idl-sequence\u2462"}], "title": "4. The CookieStoreManager Interface"}], "external": true};
@@ -3481,10 +3497,12 @@ window.dfnpanelData['dom-cookieinit-expires'] = {"dfnID": "dom-cookieinit-expire
 window.dfnpanelData['dom-cookieinit-domain'] = {"dfnID": "dom-cookieinit-domain", "url": "#dom-cookieinit-domain", "dfnText": "domain", "refSections": [{"refs": [{"id": "ref-for-dom-cookieinit-domain"}], "title": "3.3. The set() method"}], "external": false};
 window.dfnpanelData['dom-cookieinit-path'] = {"dfnID": "dom-cookieinit-path", "url": "#dom-cookieinit-path", "dfnText": "path", "refSections": [{"refs": [{"id": "ref-for-dom-cookieinit-path"}], "title": "3.3. The set() method"}], "external": false};
 window.dfnpanelData['dom-cookieinit-samesite'] = {"dfnID": "dom-cookieinit-samesite", "url": "#dom-cookieinit-samesite", "dfnText": "sameSite", "refSections": [{"refs": [{"id": "ref-for-dom-cookieinit-samesite"}], "title": "3.3. The set() method"}], "external": false};
+window.dfnpanelData['dom-cookieinit-partitioned'] = {"dfnID": "dom-cookieinit-partitioned", "url": "#dom-cookieinit-partitioned", "dfnText": "partitioned", "refSections": [{"refs": [{"id": "ref-for-dom-cookieinit-partitioned"}], "title": "3.3. The set() method"}], "external": false};
 window.dfnpanelData['dictdef-cookiestoredeleteoptions'] = {"dfnID": "dictdef-cookiestoredeleteoptions", "url": "#dictdef-cookiestoredeleteoptions", "dfnText": "CookieStoreDeleteOptions", "refSections": [{"refs": [{"id": "ref-for-dictdef-cookiestoredeleteoptions"}], "title": "3. The CookieStore Interface"}], "external": false};
 window.dfnpanelData['dom-cookiestoredeleteoptions-name'] = {"dfnID": "dom-cookiestoredeleteoptions-name", "url": "#dom-cookiestoredeleteoptions-name", "dfnText": "name", "refSections": [{"refs": [{"id": "ref-for-dom-cookiestoredeleteoptions-name"}], "title": "3.4. The delete() method"}], "external": false};
 window.dfnpanelData['dom-cookiestoredeleteoptions-domain'] = {"dfnID": "dom-cookiestoredeleteoptions-domain", "url": "#dom-cookiestoredeleteoptions-domain", "dfnText": "domain", "refSections": [{"refs": [{"id": "ref-for-dom-cookiestoredeleteoptions-domain"}], "title": "3.4. The delete() method"}], "external": false};
 window.dfnpanelData['dom-cookiestoredeleteoptions-path'] = {"dfnID": "dom-cookiestoredeleteoptions-path", "url": "#dom-cookiestoredeleteoptions-path", "dfnText": "path", "refSections": [{"refs": [{"id": "ref-for-dom-cookiestoredeleteoptions-path"}], "title": "3.4. The delete() method"}], "external": false};
+window.dfnpanelData['dom-cookiestoredeleteoptions-partitioned'] = {"dfnID": "dom-cookiestoredeleteoptions-partitioned", "url": "#dom-cookiestoredeleteoptions-partitioned", "dfnText": "partitioned", "refSections": [{"refs": [{"id": "ref-for-dom-cookiestoredeleteoptions-partitioned"}], "title": "3.4. The delete() method"}], "external": false};
 window.dfnpanelData['dictdef-cookielistitem'] = {"dfnID": "dictdef-cookielistitem", "url": "#dictdef-cookielistitem", "dfnText": "CookieListItem", "refSections": [{"refs": [{"id": "ref-for-dictdef-cookielistitem"}, {"id": "ref-for-dictdef-cookielistitem\u2460"}, {"id": "ref-for-dictdef-cookielistitem\u2461"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-dictdef-cookielistitem\u2462"}, {"id": "ref-for-dictdef-cookielistitem\u2463"}], "title": "5.1. The CookieChangeEvent interface"}, {"refs": [{"id": "ref-for-dictdef-cookielistitem\u2464"}, {"id": "ref-for-dictdef-cookielistitem\u2465"}], "title": "5.2. The ExtendableCookieChangeEvent interface"}, {"refs": [{"id": "ref-for-dictdef-cookielistitem\u2466"}], "title": "7.1. Query Cookies"}], "external": false};
 window.dfnpanelData['dom-cookielistitem-value'] = {"dfnID": "dom-cookielistitem-value", "url": "#dom-cookielistitem-value", "dfnText": "value", "refSections": [{"refs": [{"id": "ref-for-dom-cookielistitem-value"}], "title": "7.4. Process Changes"}], "external": false};
 window.dfnpanelData['typedefdef-cookielist'] = {"dfnID": "typedefdef-cookielist", "url": "#typedefdef-cookielist", "dfnText": "CookieList", "refSections": [{"refs": [{"id": "ref-for-typedefdef-cookielist"}, {"id": "ref-for-typedefdef-cookielist\u2460"}], "title": "3. The CookieStore Interface"}, {"refs": [{"id": "ref-for-typedefdef-cookielist\u2461"}, {"id": "ref-for-typedefdef-cookielist\u2462"}], "title": "5.1. The CookieChangeEvent interface"}, {"refs": [{"id": "ref-for-typedefdef-cookielist\u2463"}, {"id": "ref-for-typedefdef-cookielist\u2464"}], "title": "5.2. The ExtendableCookieChangeEvent interface"}], "external": false};
