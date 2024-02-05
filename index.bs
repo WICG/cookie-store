@@ -964,7 +964,8 @@ cookie changes have occurred which match the [=Service Worker=]'s
 Note: {{ExtendableEvent}} is used as the ancestor interface for all events in [=Service Workers=] so that the worker itself can be kept alive while the async operations are performed.
 
 <xmp class=idl>
-[Exposed=ServiceWorker]
+[Exposed=ServiceWorker,
+ SecureContext]
 interface ExtendableCookieChangeEvent : ExtendableEvent {
   constructor(DOMString type, optional ExtendableCookieChangeEventInit eventInitDict = {});
   [SameObject] readonly attribute FrozenArray<CookieListItem> changed;
