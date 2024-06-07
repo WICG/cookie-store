@@ -7,7 +7,7 @@
   <meta content="Bikeshed version 4afc1fdf9, updated Tue May 28 15:43:17 2024 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="7f8139912d2817a9b283eb859487c0a967da02b2" name="revision">
+  <meta content="dda009fea1bc5513fbc973a98376967b844a77a2" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>
@@ -1656,12 +1656,20 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
      <li data-md>
       <p>Let <var>url</var> be <var>settings</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-environment-creation-url" id="ref-for-concept-environment-creation-url④">creation URL</a>.</p>
      <li data-md>
+      <p>Let <var>domain</var> be null.</p>
+     <li data-md>
+      <p>Let <var>path</var> be "/".</p>
+     <li data-md>
+      <p>Let <var>sameSite</var> be <code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict">strict</a></code>.</p>
+     <li data-md>
+      <p>Let <var>partitioned</var> be false.</p>
+     <li data-md>
       <p>Let <var>p</var> be <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-new-promise" id="ref-for-a-new-promise④">a new promise</a>.</p>
      <li data-md>
       <p>Run the following steps <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel④">in parallel</a>:</p>
       <ol>
        <li data-md>
-        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie">set a cookie</a> with <var>url</var>, <var>name</var>, <var>value</var>.</p>
+        <p>Let <var>r</var> be the result of running <a data-link-type="dfn" href="#set-a-cookie" id="ref-for-set-a-cookie">set a cookie</a> with <var>url</var>, <var>name</var>, <var>value</var>, <var>domain</var>, <var>path</var>, <var>sameSite</var>, and <var>partitioned</var>.</p>
        <li data-md>
         <p>If <var>r</var> is failure, then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="ref-for-reject④">reject</a> <var>p</var> with a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror⑨">TypeError</a></code> and abort these steps.</p>
        <li data-md>
@@ -1728,7 +1736,7 @@ then return <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#a-prom
 null,
 "<code>/</code>",
 true, and
-"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict">strict</a></code>".</p>
+"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict①">strict</a></code>".</p>
        <li data-md>
         <p>If <var>r</var> is failure, then <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#reject" id="ref-for-reject⑥">reject</a> <var>p</var> with a <code class="idl"><a data-link-type="idl" href="https://webidl.spec.whatwg.org/#exceptiondef-typeerror" id="ref-for-exceptiondef-typeerror①①">TypeError</a></code> and abort these steps.</p>
        <li data-md>
@@ -2044,7 +2052,7 @@ The <var>cookie-string</var> itself is ignored, but the intermediate <var>cookie
         <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-none" id="ref-for-dom-cookiesamesite-none">none</a></code>".</p>
        <dt data-md>`<code>Strict</code>`
        <dd data-md>
-        <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict①">strict</a></code>".</p>
+        <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict②">strict</a></code>".</p>
        <dt data-md>`<code>Lax</code>`
        <dd data-md>
         <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-lax" id="ref-for-dom-cookiesamesite-lax">lax</a></code>".</p>
@@ -2104,19 +2112,15 @@ then return failure.</p>
      <li data-md>
       <p>If <var>expires</var> is given, then <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append④">append</a> `<code>Expires</code>`/<var>expires</var> (<a data-link-type="dfn" href="#date-serialize" id="ref-for-date-serialize">date serialized</a>) to <var>attributes</var>.</p>
      <li data-md>
-      <p>If <var>path</var> is not null, then run these steps:</p>
-      <ol>
-       <li data-md>
-        <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
-       <li data-md>
-        <p>If <var>path</var> does not end with U+002F (<code>/</code>), then append U+002F (<code>/</code>) to <var>path</var>.</p>
-       <li data-md>
-        <p>Let <var>encodedPath</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode③">UTF-8 encoding</a> <var>path</var>.</p>
-       <li data-md>
-        <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑤">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length③">length</a> of <var>encodedPath</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-attribute-value-size" id="ref-for-cookie-maximum-attribute-value-size①">maximum attribute value size</a>, then return failure.</p>
-       <li data-md>
-        <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑤">Append</a> `<code>Path</code>`/<var>encodedPath</var> to <var>attributes</var>.</p>
-      </ol>
+      <p>If <var>path</var> does not start with U+002F (<code>/</code>), then return failure.</p>
+     <li data-md>
+      <p>If <var>path</var> does not end with U+002F (<code>/</code>), then append U+002F (<code>/</code>) to <var>path</var>.</p>
+     <li data-md>
+      <p>Let <var>encodedPath</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode③">UTF-8 encoding</a> <var>path</var>.</p>
+     <li data-md>
+      <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑤">byte sequence</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-length" id="ref-for-byte-sequence-length③">length</a> of <var>encodedPath</var> is greater than the <a data-link-type="dfn" href="#cookie-maximum-attribute-value-size" id="ref-for-cookie-maximum-attribute-value-size①">maximum attribute value size</a>, then return failure.</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑤">Append</a> `<code>Path</code>`/<var>encodedPath</var> to <var>attributes</var>.</p>
      <li data-md>
       <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑥">Append</a> `<code>Secure</code>`/`` to <var>attributes</var>.</p>
      <li data-md>
@@ -2125,7 +2129,7 @@ then return failure.</p>
        <dt data-md>"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-none" id="ref-for-dom-cookiesamesite-none①">none</a></code>"
        <dd data-md>
         <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑦">Append</a> `<code>SameSite</code>`/`<code>None</code>` to <var>attributes</var>.</p>
-       <dt data-md>"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict②">strict</a></code>"
+       <dt data-md>"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict③">strict</a></code>"
        <dd data-md>
         <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-append" id="ref-for-list-append⑧">Append</a> `<code>SameSite</code>`/`<code>Strict</code>` to <var>attributes</var>.</p>
        <dt data-md>"<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-lax" id="ref-for-dom-cookiesamesite-lax①">lax</a></code>"
@@ -2161,7 +2165,7 @@ as long as it is in the past.</p>
      <li data-md>
       <p>Let <var>value</var> be the empty string.</p>
      <li data-md>
-      <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict③">strict</a></code>".</p>
+      <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict④">strict</a></code>".</p>
       <p class="note" role="note"><span class="marker">Note:</span> The values for <var>value</var>, and <var>sameSite</var> will not be persisted
 by this algorithm.</p>
      <li data-md>
@@ -3456,7 +3460,7 @@ let dfnPanelData = {
 "dom-cookielistitem-value": {"dfnID":"dom-cookielistitem-value","dfnText":"value","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookielistitem-value"}],"title":"7.4. Process Changes"}],"url":"#dom-cookielistitem-value"},
 "dom-cookiesamesite-lax": {"dfnID":"dom-cookiesamesite-lax","dfnText":"\"lax\"","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiesamesite-lax"}],"title":"7.1. Query Cookies"},{"refs":[{"id":"ref-for-dom-cookiesamesite-lax\u2460"}],"title":"7.2. Set a Cookie"}],"url":"#dom-cookiesamesite-lax"},
 "dom-cookiesamesite-none": {"dfnID":"dom-cookiesamesite-none","dfnText":"\"none\"","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiesamesite-none"}],"title":"7.1. Query Cookies"},{"refs":[{"id":"ref-for-dom-cookiesamesite-none\u2460"}],"title":"7.2. Set a Cookie"}],"url":"#dom-cookiesamesite-none"},
-"dom-cookiesamesite-strict": {"dfnID":"dom-cookiesamesite-strict","dfnText":"\"strict\"","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiesamesite-strict"}],"title":"3.4. The delete() method"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2460"}],"title":"7.1. Query Cookies"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2461"}],"title":"7.2. Set a Cookie"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2462"}],"title":"7.3. Delete a Cookie"}],"url":"#dom-cookiesamesite-strict"},
+"dom-cookiesamesite-strict": {"dfnID":"dom-cookiesamesite-strict","dfnText":"\"strict\"","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiesamesite-strict"}],"title":"3.3. The set() method"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2460"}],"title":"3.4. The delete() method"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2461"}],"title":"7.1. Query Cookies"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2462"}],"title":"7.2. Set a Cookie"},{"refs":[{"id":"ref-for-dom-cookiesamesite-strict\u2463"}],"title":"7.3. Delete a Cookie"}],"url":"#dom-cookiesamesite-strict"},
 "dom-cookiestore-delete": {"dfnID":"dom-cookiestore-delete","dfnText":"delete(name)","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiestore-delete"}],"title":"1.4. Modifying Cookies"},{"refs":[{"id":"ref-for-dom-cookiestore-delete\u2460"}],"title":"3. The CookieStore Interface"},{"refs":[{"id":"ref-for-dom-cookiestore-delete\u2461"},{"id":"ref-for-dom-cookiestore-delete\u2462"}],"title":"3.4. The delete() method"}],"url":"#dom-cookiestore-delete"},
 "dom-cookiestore-delete-name-name": {"dfnID":"dom-cookiestore-delete-name-name","dfnText":"name","external":false,"refSections":[],"url":"#dom-cookiestore-delete-name-name"},
 "dom-cookiestore-delete-options": {"dfnID":"dom-cookiestore-delete-options","dfnText":"delete(options)","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-cookiestore-delete-options"}],"title":"3. The CookieStore Interface"},{"refs":[{"id":"ref-for-dom-cookiestore-delete-options\u2460"}],"title":"3.4. The delete() method"}],"url":"#dom-cookiestore-delete-options"},
