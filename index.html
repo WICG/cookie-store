@@ -7,7 +7,7 @@
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="37fb6f590f340167b3db9bf2b5371906772bd5e7" name="revision">
+  <meta content="2e05e4a5dd6a1c0f8779bd94ce918e2d9b0145c4" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>
@@ -984,7 +984,7 @@ var[data-var-color="6"] { --var-vg: #FFBCF2; }
  <body class="h-entry">
   <div class="head">
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2025-05-02">2 May 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2025-05-06">6 May 2025</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2185,7 +2185,7 @@ then return failure.</p>
       <p class="note" role="note"><span class="marker">Note:</span> The exact value of <var>expires</var> is not important for the purposes of this algorithm,
 as long as it is in the past.</p>
      <li data-md>
-      <p>Let <var>value</var> be the empty string.</p>
+      <p>Let <var>value</var> be any non-empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#implementation-defined" id="ref-for-implementation-defined">implementation-defined</a> string.</p>
      <li data-md>
       <p>Let <var>sameSite</var> be "<code class="idl"><a data-link-type="idl" href="#dom-cookiesamesite-strict" id="ref-for-dom-cookiesamesite-strict④">strict</a></code>".</p>
       <p class="note" role="note"><span class="marker">Note:</span> The values for <var>value</var>, and <var>sameSite</var> will not be persisted
@@ -2650,6 +2650,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="ae8def21">contain</span>
      <li><span class="dfn-paneled" id="f937b7b6">continue</span>
      <li><span class="dfn-paneled" id="16d07e10">for each</span>
+     <li><span class="dfn-paneled" id="860300d4">implementation-defined</span>
      <li><span class="dfn-paneled" id="6b815fdd">is empty</span>
      <li><span class="dfn-paneled" id="5afbefcd">item</span>
      <li><span class="dfn-paneled" id="36333997">length <small>(for byte sequence)</small></span>
@@ -3388,6 +3389,7 @@ let dfnPanelData = {
 "76b107de": {"dfnID":"76b107de","dfnText":"ExtendableEvent","external":true,"refSections":[{"refs":[{"id":"ref-for-extendableevent"},{"id":"ref-for-extendableevent\u2460"}],"title":"5.2. The ExtendableCookieChangeEvent interface"}],"url":"https://w3c.github.io/ServiceWorker/#extendableevent"},
 "7b0d918d": {"dfnID":"7b0d918d","dfnText":"break","external":true,"refSections":[{"refs":[{"id":"ref-for-iteration-break"}],"title":"7.4. Process Changes"}],"url":"https://infra.spec.whatwg.org/#iteration-break"},
 "82ca3efc": {"dfnID":"82ca3efc","dfnText":"TypeError","external":true,"refSections":[{"refs":[{"id":"ref-for-exceptiondef-typeerror"},{"id":"ref-for-exceptiondef-typeerror\u2460"},{"id":"ref-for-exceptiondef-typeerror\u2461"},{"id":"ref-for-exceptiondef-typeerror\u2462"},{"id":"ref-for-exceptiondef-typeerror\u2463"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2464"},{"id":"ref-for-exceptiondef-typeerror\u2465"},{"id":"ref-for-exceptiondef-typeerror\u2466"},{"id":"ref-for-exceptiondef-typeerror\u2467"}],"title":"3.2. The getAll() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2468"},{"id":"ref-for-exceptiondef-typeerror\u2460\u24ea"}],"title":"3.3. The set() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2460"},{"id":"ref-for-exceptiondef-typeerror\u2460\u2461"}],"title":"3.4. The delete() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2462"}],"title":"4.1. The subscribe() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2463"}],"title":"4.3. The unsubscribe() method"}],"url":"https://webidl.spec.whatwg.org/#exceptiondef-typeerror"},
+"860300d4": {"dfnID":"860300d4","dfnText":"implementation-defined","external":true,"refSections":[{"refs":[{"id":"ref-for-implementation-defined"}],"title":"7.3. Delete a Cookie"}],"url":"https://infra.spec.whatwg.org/#implementation-defined"},
 "86d2a717": {"dfnID":"86d2a717","dfnText":"ServiceWorkerGlobalScope","external":true,"refSections":[{"refs":[{"id":"ref-for-serviceworkerglobalscope"}],"title":"5.2. The ExtendableCookieChangeEvent interface"},{"refs":[{"id":"ref-for-serviceworkerglobalscope\u2460"}],"title":"6. Global Interfaces"},{"refs":[{"id":"ref-for-serviceworkerglobalscope\u2461"},{"id":"ref-for-serviceworkerglobalscope\u2462"},{"id":"ref-for-serviceworkerglobalscope\u2463"}],"title":"6.2. The ServiceWorkerGlobalScope interface"}],"url":"https://w3c.github.io/ServiceWorker/#serviceworkerglobalscope"},
 "873e2ff8": {"dfnID":"873e2ff8","dfnText":"time values","external":true,"refSections":[{"refs":[{"id":"ref-for-sec-time-values-and-time-range"}],"title":"7. Algorithms"}],"url":"https://tc39.github.io/ecma262/#sec-time-values-and-time-range"},
 "8855a9aa": {"dfnID":"8855a9aa","dfnText":"DOMString","external":true,"refSections":[{"refs":[{"id":"ref-for-idl-DOMString"}],"title":"5.1. The CookieChangeEvent interface"},{"refs":[{"id":"ref-for-idl-DOMString\u2460"}],"title":"5.2. The ExtendableCookieChangeEvent interface"}],"url":"https://webidl.spec.whatwg.org/#idl-DOMString"},
@@ -4102,6 +4104,7 @@ let refsData = {
 "https://infra.spec.whatwg.org/#byte-sequence": {"displayText":"byte sequence","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"byte sequence","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-sequence"},
 "https://infra.spec.whatwg.org/#byte-sequence-length": {"displayText":"length","export":true,"for_":["byte sequence"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"length","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-sequence-length"},
 "https://infra.spec.whatwg.org/#c0-control": {"displayText":"c0 control","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"c0 control","type":"dfn","url":"https://infra.spec.whatwg.org/#c0-control"},
+"https://infra.spec.whatwg.org/#implementation-defined": {"displayText":"implementation-defined","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"implementation-defined","type":"dfn","url":"https://infra.spec.whatwg.org/#implementation-defined"},
 "https://infra.spec.whatwg.org/#iteration-break": {"displayText":"break","export":true,"for_":["iteration"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"break","type":"dfn","url":"https://infra.spec.whatwg.org/#iteration-break"},
 "https://infra.spec.whatwg.org/#iteration-continue": {"displayText":"continue","export":true,"for_":["iteration"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"continue","type":"dfn","url":"https://infra.spec.whatwg.org/#iteration-continue"},
 "https://infra.spec.whatwg.org/#list": {"displayText":"list","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"list","type":"dfn","url":"https://infra.spec.whatwg.org/#list"},
