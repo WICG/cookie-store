@@ -7,7 +7,7 @@
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="e6b17ee89ee1007df596bc5ab163143250f8af17" name="revision">
+  <meta content="9570d805b2d1d4bf04db90dbbe08f9d44e3b7ffd" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>
@@ -984,7 +984,7 @@ var[data-var-color="6"] { --var-vg: #FFBCF2; }
  <body class="h-entry">
   <div class="head">
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2025-05-22">22 May 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#CG-DRAFT">Draft Community Group Report</a>, <time class="dt-updated" datetime="2025-05-27">27 May 2025</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2103,9 +2103,15 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, <var>sameSite</
       <p>If <var>name</var> or <var>value</var> contain U+003B (;), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 TAB, or U+007F DELETE, then return failure.</p>
       <p class="issue" id="issue-d93c44be"><a class="self-link" href="#issue-d93c44be"></a> Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well. <a href="https://github.com/httpwg/http-extensions/issues/1593">[httpwg/http-extensions Issue #1593]</a></p>
      <li data-md>
-      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0 and <var>value</var> contains U+003D (=), then return failure.</p>
-     <li data-md>
-      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0 and <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length②">length</a> is 0, then return failure.</p>
+      <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0:</p>
+      <ol>
+       <li data-md>
+        <p>If <var>value</var> contains U+003D (=), then return failure.</p>
+       <li data-md>
+        <p>If <var>value</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length①">length</a> is 0, then return failure.</p>
+       <li data-md>
+        <p>If <var>value</var>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-lowercase" id="ref-for-byte-lowercase">byte-lowercased</a>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-starts-with" id="ref-for-byte-sequence-starts-with">starts with</a> `<code>__host-</code>` or `<code>__secure-</code>`, then return failure.</p>
+      </ol>
      <li data-md>
       <p>Let <var>encodedName</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode">UTF-8 encoding</a> <var>name</var>.</p>
      <li data-md>
@@ -2121,6 +2127,8 @@ optional <var>expires</var>, <var>domain</var>, <var>path</var>, <var>sameSite</
       <ol>
        <li data-md>
         <p>If <var>domain</var> starts with U+002E (.), then return failure.</p>
+       <li data-md>
+        <p>If <var>name</var>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-lowercase" id="ref-for-byte-lowercase①">byte-lowercased</a>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-starts-with" id="ref-for-byte-sequence-starts-with①">starts with</a> `<code>__host-</code>`, then return failure.</p>
        <li data-md>
         <p>If <var>host</var> does not equal <var>domain</var> and <var>host</var> does not end with U+002E (.) followed by <var>domain</var>,
 then return failure.</p>
@@ -2138,6 +2146,8 @@ then return failure.</p>
       <ol>
        <li data-md>
         <p>If <var>path</var> does not start with U+002F (/), then return failure.</p>
+       <li data-md>
+        <p>If <var>path</var> is not U+002F (/), and <var>name</var>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-lowercase" id="ref-for-byte-lowercase②">byte-lowercased</a>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence-starts-with" id="ref-for-byte-sequence-starts-with②">starts with</a> `<code>__host-</code>`, then return failure.</p>
        <li data-md>
         <p>Let <var>encodedPath</var> be the result of <a data-link-type="dfn" href="https://encoding.spec.whatwg.org/#utf-8-encode" id="ref-for-utf-8-encode③">UTF-8 encoding</a> <var>path</var>.</p>
        <li data-md>
@@ -2642,6 +2652,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="7b0d918d">break</span>
      <li><span class="dfn-paneled" id="f5354b9d">byte</span>
      <li><span class="dfn-paneled" id="3de9e659">byte sequence</span>
+     <li><span class="dfn-paneled" id="7838e1c1">byte-lowercase</span>
      <li><span class="dfn-paneled" id="0e2d3ffe">c0 control</span>
      <li><span class="dfn-paneled" id="ae8def21">contain</span>
      <li><span class="dfn-paneled" id="f937b7b6">continue</span>
@@ -2654,6 +2665,7 @@ authoring advice.</p>
      <li><span class="dfn-paneled" id="649608b9">list</span>
      <li><span class="dfn-paneled" id="99c988d6">remove</span>
      <li><span class="dfn-paneled" id="15e48c39">set</span>
+     <li><span class="dfn-paneled" id="904cdc91">starts with</span>
      <li><span class="dfn-paneled" id="0e8de730">tuple</span>
     </ul>
    <li>
@@ -3355,7 +3367,7 @@ let dfnPanelData = {
 "0e2d3ffe": {"dfnID":"0e2d3ffe","dfnText":"c0 control","external":true,"refSections":[{"refs":[{"id":"ref-for-c0-control"}],"title":"7.2. Set a Cookie"}],"url":"https://infra.spec.whatwg.org/#c0-control"},
 "0e8de730": {"dfnID":"0e8de730","dfnText":"tuple","external":true,"refSections":[{"refs":[{"id":"ref-for-tuple"}],"title":"2.3. Extensions to Service Worker"}],"url":"https://infra.spec.whatwg.org/#tuple"},
 "0e9f636b": {"dfnID":"0e9f636b","dfnText":"DOMHighResTimeStamp","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-domhighrestimestamp"},{"id":"ref-for-dom-domhighrestimestamp\u2460"}],"title":"3. The CookieStore Interface"},{"refs":[{"id":"ref-for-dom-domhighrestimestamp\u2461"}],"title":"7. Algorithms"}],"url":"https://w3c.github.io/hr-time/#dom-domhighrestimestamp"},
-"0fa357c3": {"dfnID":"0fa357c3","dfnText":"length (for string)","external":true,"refSections":[{"refs":[{"id":"ref-for-string-length"},{"id":"ref-for-string-length\u2460"},{"id":"ref-for-string-length\u2461"}],"title":"7.2. Set a Cookie"}],"url":"https://infra.spec.whatwg.org/#string-length"},
+"0fa357c3": {"dfnID":"0fa357c3","dfnText":"length (for string)","external":true,"refSections":[{"refs":[{"id":"ref-for-string-length"},{"id":"ref-for-string-length\u2460"}],"title":"7.2. Set a Cookie"}],"url":"https://infra.spec.whatwg.org/#string-length"},
 "129bdae8": {"dfnID":"129bdae8","dfnText":"Event","external":true,"refSections":[{"refs":[{"id":"ref-for-event"}],"title":"5.1. The CookieChangeEvent interface"}],"url":"https://dom.spec.whatwg.org/#event"},
 "1372f92a": {"dfnID":"1372f92a","dfnText":"dispatch","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-event-dispatch"}],"title":"5.1. The CookieChangeEvent interface"},{"refs":[{"id":"ref-for-concept-event-dispatch\u2460"}],"title":"5.2. The ExtendableCookieChangeEvent interface"},{"refs":[{"id":"ref-for-concept-event-dispatch\u2461"}],"title":"7.4. Process Changes"}],"url":"https://dom.spec.whatwg.org/#concept-event-dispatch"},
 "15e48c39": {"dfnID":"15e48c39","dfnText":"set","external":true,"refSections":[{"refs":[{"id":"ref-for-ordered-set"},{"id":"ref-for-ordered-set\u2460"}],"title":"7.4. Process Changes"}],"url":"https://infra.spec.whatwg.org/#ordered-set"},
@@ -3383,6 +3395,7 @@ let dfnPanelData = {
 "6fbdf145": {"dfnID":"6fbdf145","dfnText":"equal","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-url-equals"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-concept-url-equals\u2460"}],"title":"3.2. The getAll() method"}],"url":"https://url.spec.whatwg.org/#concept-url-equals"},
 "7393da89": {"dfnID":"7393da89","dfnText":"same origin","external":true,"refSections":[{"refs":[{"id":"ref-for-same-origin"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-same-origin\u2460"}],"title":"3.2. The getAll() method"}],"url":"https://html.spec.whatwg.org/multipage/browsers.html#same-origin"},
 "76b107de": {"dfnID":"76b107de","dfnText":"ExtendableEvent","external":true,"refSections":[{"refs":[{"id":"ref-for-extendableevent"},{"id":"ref-for-extendableevent\u2460"}],"title":"5.2. The ExtendableCookieChangeEvent interface"}],"url":"https://w3c.github.io/ServiceWorker/#extendableevent"},
+"7838e1c1": {"dfnID":"7838e1c1","dfnText":"byte-lowercase","external":true,"refSections":[{"refs":[{"id":"ref-for-byte-lowercase"},{"id":"ref-for-byte-lowercase\u2460"},{"id":"ref-for-byte-lowercase\u2461"}],"title":"7.2. Set a Cookie"}],"url":"https://infra.spec.whatwg.org/#byte-lowercase"},
 "7b0d918d": {"dfnID":"7b0d918d","dfnText":"break","external":true,"refSections":[{"refs":[{"id":"ref-for-iteration-break"}],"title":"7.4. Process Changes"}],"url":"https://infra.spec.whatwg.org/#iteration-break"},
 "82ca3efc": {"dfnID":"82ca3efc","dfnText":"TypeError","external":true,"refSections":[{"refs":[{"id":"ref-for-exceptiondef-typeerror"},{"id":"ref-for-exceptiondef-typeerror\u2460"},{"id":"ref-for-exceptiondef-typeerror\u2461"},{"id":"ref-for-exceptiondef-typeerror\u2462"},{"id":"ref-for-exceptiondef-typeerror\u2463"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2464"},{"id":"ref-for-exceptiondef-typeerror\u2465"},{"id":"ref-for-exceptiondef-typeerror\u2466"},{"id":"ref-for-exceptiondef-typeerror\u2467"}],"title":"3.2. The getAll() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2468"},{"id":"ref-for-exceptiondef-typeerror\u2460\u24ea"}],"title":"3.3. The set() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2460"},{"id":"ref-for-exceptiondef-typeerror\u2460\u2461"}],"title":"3.4. The delete() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2462"}],"title":"4.1. The subscribe() method"},{"refs":[{"id":"ref-for-exceptiondef-typeerror\u2460\u2463"}],"title":"4.3. The unsubscribe() method"}],"url":"https://webidl.spec.whatwg.org/#exceptiondef-typeerror"},
 "860300d4": {"dfnID":"860300d4","dfnText":"implementation-defined","external":true,"refSections":[{"refs":[{"id":"ref-for-implementation-defined"}],"title":"7.3. Delete a Cookie"}],"url":"https://infra.spec.whatwg.org/#implementation-defined"},
@@ -3392,6 +3405,7 @@ let dfnPanelData = {
 "889e932f": {"dfnID":"889e932f","dfnText":"Exposed","external":true,"refSections":[{"refs":[{"id":"ref-for-Exposed"},{"id":"ref-for-Exposed\u2460"}],"title":"3. The CookieStore Interface"},{"refs":[{"id":"ref-for-Exposed\u2461"}],"title":"4. The CookieStoreManager Interface"},{"refs":[{"id":"ref-for-Exposed\u2462"}],"title":"4.4. The ServiceWorkerRegistration interface"},{"refs":[{"id":"ref-for-Exposed\u2463"}],"title":"5.1. The CookieChangeEvent interface"},{"refs":[{"id":"ref-for-Exposed\u2464"}],"title":"5.2. The ExtendableCookieChangeEvent interface"}],"url":"https://webidl.spec.whatwg.org/#Exposed"},
 "8abfc3b6": {"dfnID":"8abfc3b6","dfnText":"creating an event","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-event-create"}],"title":"7.4. Process Changes"}],"url":"https://dom.spec.whatwg.org/#concept-event-create"},
 "8c407366": {"dfnID":"8c407366","dfnText":"cancelable","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-event-cancelable"}],"title":"7.4. Process Changes"}],"url":"https://dom.spec.whatwg.org/#dom-event-cancelable"},
+"904cdc91": {"dfnID":"904cdc91","dfnText":"starts with","external":true,"refSections":[{"refs":[{"id":"ref-for-byte-sequence-starts-with"},{"id":"ref-for-byte-sequence-starts-with\u2460"},{"id":"ref-for-byte-sequence-starts-with\u2461"}],"title":"7.2. Set a Cookie"}],"url":"https://infra.spec.whatwg.org/#byte-sequence-starts-with"},
 "959ad97b": {"dfnID":"959ad97b","dfnText":"origin","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-url-origin"},{"id":"ref-for-concept-url-origin\u2460"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-concept-url-origin\u2461"},{"id":"ref-for-concept-url-origin\u2462"}],"title":"3.2. The getAll() method"}],"url":"https://url.spec.whatwg.org/#concept-url-origin"},
 "99c988d6": {"dfnID":"99c988d6","dfnText":"remove","external":true,"refSections":[{"refs":[{"id":"ref-for-list-remove"}],"title":"4.3. The unsubscribe() method"}],"url":"https://infra.spec.whatwg.org/#list-remove"},
 "9c4c1e66": {"dfnID":"9c4c1e66","dfnText":"relevant settings object","external":true,"refSections":[{"refs":[{"id":"ref-for-relevant-settings-object"},{"id":"ref-for-relevant-settings-object\u2460"}],"title":"3.1. The get() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2461"},{"id":"ref-for-relevant-settings-object\u2462"}],"title":"3.2. The getAll() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2463"},{"id":"ref-for-relevant-settings-object\u2464"}],"title":"3.3. The set() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2465"},{"id":"ref-for-relevant-settings-object\u2466"}],"title":"3.4. The delete() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2467"}],"title":"4.1. The subscribe() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2468"}],"title":"4.3. The unsubscribe() method"},{"refs":[{"id":"ref-for-relevant-settings-object\u2460\u24ea"}],"title":"7.4. Process Changes"}],"url":"https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object"},
@@ -4097,8 +4111,10 @@ let refsData = {
 "https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object": {"displayText":"relevant settings object","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"relevant settings object","type":"dfn","url":"https://html.spec.whatwg.org/multipage/webappapis.html#relevant-settings-object"},
 "https://html.spec.whatwg.org/multipage/webappapis.html#secure-context": {"displayText":"secure context","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"secure context","type":"dfn","url":"https://html.spec.whatwg.org/multipage/webappapis.html#secure-context"},
 "https://infra.spec.whatwg.org/#byte": {"displayText":"byte","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"byte","type":"dfn","url":"https://infra.spec.whatwg.org/#byte"},
+"https://infra.spec.whatwg.org/#byte-lowercase": {"displayText":"byte-lowercase","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"byte-lowercase","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-lowercase"},
 "https://infra.spec.whatwg.org/#byte-sequence": {"displayText":"byte sequence","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"byte sequence","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-sequence"},
 "https://infra.spec.whatwg.org/#byte-sequence-length": {"displayText":"length","export":true,"for_":["byte sequence"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"length","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-sequence-length"},
+"https://infra.spec.whatwg.org/#byte-sequence-starts-with": {"displayText":"starts with","export":true,"for_":["byte sequence"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"starts with","type":"dfn","url":"https://infra.spec.whatwg.org/#byte-sequence-starts-with"},
 "https://infra.spec.whatwg.org/#c0-control": {"displayText":"c0 control","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"c0 control","type":"dfn","url":"https://infra.spec.whatwg.org/#c0-control"},
 "https://infra.spec.whatwg.org/#implementation-defined": {"displayText":"implementation-defined","export":true,"for_":[],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"implementation-defined","type":"dfn","url":"https://infra.spec.whatwg.org/#implementation-defined"},
 "https://infra.spec.whatwg.org/#iteration-break": {"displayText":"break","export":true,"for_":["iteration"],"level":"1","normative":true,"shortname":"infra","spec":"infra","status":"current","text":"break","type":"dfn","url":"https://infra.spec.whatwg.org/#iteration-break"},
