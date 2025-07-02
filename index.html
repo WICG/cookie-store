@@ -4,10 +4,10 @@
   <title>Cookie Store API</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <link href="https://www.w3.org/StyleSheets/TR/2021/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version 275834c42, updated Wed Jun 11 14:18:15 2025 -0700" name="generator">
+  <meta content="Bikeshed version 618007319, updated Thu Jun 26 17:23:55 2025 -0700" name="generator">
   <link href="https://wicg.github.io/cookie-store/" rel="canonical">
   <link href="logo-cookies.svg" rel="icon">
-  <meta content="3184df50725d8a74a9cc0c845aa0d41372e78e31" name="revision">
+  <meta content="a6b7cfe817be7b851b9e338f70b3cb172a453a4a" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>
@@ -985,7 +985,7 @@ var[data-var-color="6"] { --var-vg: #FFBCF2; }
   <div class="head">
    <h1 class="p-name no-ref" id="title">Cookie Store API</h1>
    <p id="w3c-state"><a href="https://www.w3.org/standards/types/#CG-DRAFT">Draft Community Group Report</a>,
-    <time class="dt-updated" datetime="2025-06-23">23 June 2025</time></p>
+    <time class="dt-updated" datetime="2025-07-02">2 July 2025</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2254,6 +2254,8 @@ run the following steps:</p>
      <li data-md>
       <p>If <var>name</var> or <var>value</var> contain U+003B (;), any <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#c0-control" id="ref-for-c0-control">C0 control</a> character except U+0009 TAB, or U+007F DELETE, then return failure.</p>
       <p class="issue" id="issue-d93c44be"><a class="self-link" href="#issue-d93c44be"></a> Note that it’s up for discussion whether these character restrictions should also apply to <var>expires</var>, <var>domain</var>, <var>path</var>, and <var>sameSite</var> as well. <a href="https://github.com/httpwg/http-extensions/issues/1593">[httpwg/http-extensions Issue #1593]</a></p>
+     <li data-md>
+      <p>If <var>name</var> contains U+003D (=), then return failure.</p>
      <li data-md>
       <p>If <var>name</var>’s <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#string-length" id="ref-for-string-length">length</a> is 0:</p>
       <ol>
